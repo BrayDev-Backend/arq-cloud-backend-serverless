@@ -29,7 +29,7 @@ infraestructura y garantiza disponibilidad del 99.9% mensual.
 
 ## Diagrama C1
 
-![Diagrama de contexto C1](assets/c1-diagram.drawio.png)
+![Diagrama de contexto C1](assets/C1-Diagram1.drawio.png)
 
 ### Usuarios/Actores
 
