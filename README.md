@@ -44,3 +44,23 @@ infraestructura y garantiza disponibilidad del 99.9% mensual.
 - APNs — Apple Push Notification Service, equivalente de FCM pero para dispositivos iOS. Sin él no hay notificaciones en iPhone.
 - Pasarela de pagos — Es el modelo de negocio de RapidGo encargado de realizar cobros a clientes por pedido y separar comision del 18% a los repartidores por pedido completado.
 - Maps API — Los repartidores necesitan navegación para las rutas de entrega y los clientes necesitan ver el seguimiento en tiempo real.
+
+### Interacciones del sistema
+
+#### Actores → AppMovil
+
+| Interacción | Descripción | Justificación |
+
+| Cliente → AppMovil | Crea, edita y elimina pedidos | El cliente es el actor principal del negocio. Sin él no hay pedidos ni ingresos para RapidGo |
+| Repartidor → AppMovil | Asigna y notifica pedidos | El repartidor gestiona sus entregas y rutas directamente desde la app móvil |
+| Administrador → AppMovil | Reporta métricas y estado de la operación | El administrador supervisa clientes, repartidores y restaurantes desde un único punto |
+| Restaurante → AppMovil | Gestiona su catálogo | El restaurante añade, actualiza y elimina productos para que los clientes puedan ordenar |
+
+#### AppMovil → Sistemas externos
+
+| Interacción | Descripción | Justificación |
+
+| AppMovil → Pasarela de Pagos | Procesa cobros online | RapidGo cobra una comisión del 18% por pedido completado, lo que hace indispensable un sistema de cobro en línea |
+| AppMovil → Maps API | Consulta rutas dinámicas | Los repartidores necesitan navegación para las entregas y los clientes necesitan ver el seguimiento de su pedido en tiempo real |
+| AppMovil → FCM | Envía notificaciones push Android | FCM es el estándar de Google para notificaciones en dispositivos Android, necesario para informar cambios de estado del pedido |
+| AppMovil → APNs | Envía notificaciones push iOS | APNs es el servicio de Apple equivalente a FCM, indispensable para notificaciones en dispositivos iPhone |
