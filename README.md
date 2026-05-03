@@ -7,11 +7,11 @@ permitiendo escalabilidad automática a más de 500 solicitudes por segundo sin
 intervención manual y un modelo de costos basado en consumo real.
 
 ## Stack de Servicios AZURE 
-Azure Functions: Lógica de negocio y procesamiento de pedidos 
-Azure API Management: Punto de entrada único, autenticación JWT y throttling 
-Azure Cosmos DB: Persistencia de pedidos, usuarios y estados de entrega 
-Azure Blob Storage: Almacenamiento de comprobantes e imágenes de productos 
-Azure Notification Hubs: Notificaciones push a Android (FCM) e iOS (APNs) 
+- Azure Functions: Lógica de negocio y procesamiento de pedidos 
+- Azure API Management: Punto de entrada único, autenticación JWT y throttling 
+- Azure Cosmos DB: Persistencia de pedidos, usuarios y estados de entrega 
+- Azure Blob Storage: Almacenamiento de comprobantes e imágenes de productos 
+- Azure Notification Hubs: Notificaciones push a Android (FCM) e iOS (APNs) 
 
 ## Arquitectura
 ### Contexto del Sistema
