@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="RapidGo" width="200"/>
+  <img src="assets/logo1.png" alt="RapidGo" width="200"/>
 </p>
 
 # RapidGo Backend
