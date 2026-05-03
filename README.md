@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="RapidGo" width="200"/>
+</p>
+
 # RapidGo Backend
 
 Backend serverless para la aplicación móvil de servicios de domicilios RapidGo.
