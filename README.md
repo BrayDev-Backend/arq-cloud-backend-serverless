@@ -20,7 +20,7 @@ activos. El sistema procesa en promedio 1.200 pedidos diarios con picos de hasta
 4.500 en días festivos. La arquitectura serverless elimina el costo fijo de
 infraestructura y garantiza disponibilidad del 99.9% mensual.
 
-##Diagrama C1
+## Diagrama C1
 
 ![Diagrama de contexto](assets/c1-context.png)
 
