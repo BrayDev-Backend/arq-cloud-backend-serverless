@@ -59,4 +59,9 @@ infraestructura y garantiza disponibilidad del 99.9% mensual.
 - AppMovil → Pasarela de Pagos | Procesa cobros online: RapidGo cobra una comisión del 18% por pedido completado, lo que hace indispensable un sistema de cobro en línea 
 - AppMovil → Maps API | Consulta rutas dinámicas: Los repartidores necesitan navegación para las entregas y los clientes necesitan ver el seguimiento de su pedido en tiempo real 
 - AppMovil → FCM | Envía notificaciones push Android: FCM es el estándar de Google para notificaciones en dispositivos Android, necesario para informar cambios de estado del pedido
-- AppMovil → APNs | Envía notificaciones push iOS: APNs es el servicio de Apple equivalente a FCM, indispensable para notificaciones en dispositivos iPhone 
+- AppMovil → APNs | Envía notificaciones push iOS: APNs es el servicio de Apple equivalente a FCM, indispensable para notificaciones en dispositivos iPhone
+
+
+## Diagrama C2
+
+![Diagrama de contexto C1](assets/diagram-c2.drawio.png)
