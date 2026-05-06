@@ -60,3 +60,43 @@ def consultar_historial(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse(f"Error: {str(e)}", status_code=500)
 
 
+@app.route(route="actualizar_estado", methods=["PUT"])
+def actualizar_estado(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Actualizando estado del pedido en Cosmos DB...')
+    try:
+        container = get_container()
+        req_body = req.get_json()
+        
+        id_pedido = req_body.get('id_pedido')
+        nuevo_estado = req_body.get('estado')
+
+        # Validación de campos obligatorios
+        if not id_pedido or not nuevo_estado:
+            return func.HttpResponse(
+                "Error: Faltan campos obligatorios (id_pedido o estado)", 
+                status_code=400
+            )
+
+        operaciones = [
+            {'op': 'replace', 'path': '/estado', 'value': nuevo_estado}
+        ]
+        
+        container.patch_item(
+            item=str(id_pedido),
+            partition_key=str(id_pedido),
+            patch_operations=operaciones
+        )
+
+        return func.HttpResponse(
+            json.dumps({
+                "status": "Actualizado", 
+                "id_pedido": id_pedido, 
+                "nuevo_estado": nuevo_estado
+            }),
+            mimetype="application/json",
+            status_code=200
+        )
+    except Exception as e:
+        logging.error(f"Error al actualizar: {str(e)}")
+        return func.HttpResponse(f"Error: {str(e)}", status_code=500)
+
