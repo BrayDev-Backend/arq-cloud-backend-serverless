@@ -64,4 +64,4 @@ infraestructura y garantiza disponibilidad del 99.9% mensual.
 
 ## Diagrama C2
 
-![Diagrama de contexto C1](assets/diagram-c2.drawio.png)
+![Diagrama de contexto C1](assets/DiagramC2-Serverless.drawio.png)
