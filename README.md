@@ -29,7 +29,7 @@ infraestructura y garantiza disponibilidad del 99.9% mensual.
 
 ## Diagrama C1
 
-![Diagrama de contexto C1](assets/C4 Diagram Serverless-C1 Diagram.drawio.png)
+![Diagrama de contexto C1](assets/DiagramC1-Serverless.drawio.png)
 
 ### Usuarios/Actores
 
