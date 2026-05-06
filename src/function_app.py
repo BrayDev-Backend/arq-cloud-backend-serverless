@@ -48,3 +48,15 @@ def registrar_pedido(req: func.HttpRequest) -> func.HttpResponse:
         logging.error(f"Error detallado: {str(e)}")
         return func.HttpResponse(f"Error: {str(e)}", status_code=500)
 
+
+@app.route(route="consultar_historial", methods=["GET"])
+def consultar_historial(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Consultando historial de pedidos...')
+    try:
+        container = get_container()
+        pedidos = list(container.read_all_items())
+        return func.HttpResponse(json.dumps(pedidos), mimetype="application/json", status_code=200)
+    except Exception as e:
+        return func.HttpResponse(f"Error: {str(e)}", status_code=500)
+
+
