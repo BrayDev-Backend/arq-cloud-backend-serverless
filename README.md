@@ -128,3 +128,34 @@ clusters.
 ## Diagrama C2
 
 ![Diagrama de contexto C1](assets/DiagramC2-Serverless.drawio.png)
+
+#### Contenedores del Sistema
+
+- API Management: Punto de entrada único. Gestiona autenticación JWT, throttling por usuario y versionado de la API
+  
+- Azure Functions: Lógica de negocio: registrar pedidos, actualizar estados, consultar historial y disparar notificaciones
+  
+- Cosmos DB: Persistencia de pedidos, usuarios y estados de entrega
+  
+- Blob Storage: Almacenamiento de fotos de comprobantes de entrega, imágenes de productos y reportes
+  
+- Notification Hubs: Envío de notificaciones push en tiempo real a Android (FCM) y iOS (APNs) 
+
+
+
+#### Protocolos de comunicación
+
+- AppMóvil RapidGo → API Management | HTTPS | Todas las peticiones REST de la app móvil ingresan por este punto
+  
+- API Management → Azure Functions | HTTPS : El gateway enruta las peticiones validadas hacia las funciones correspondientes
+
+- Azure Functions → Cosmos DB | SDK de Cosmos DB:  Lectura y escritura de pedidos y usuarios usando el SDK oficial de Azure
+  
+- Azure Functions → Blob Storage | SDK de Azure Storage:  Almacenamiento de fotos de 
+comprobantes de entrega, imágenes de productos y exportes de reportes operacionales 
+  
+- Azure Functions → Notification Hubs | SDK de Notification Hubs:  Disparo de notificaciones push al cambiar el estado de un pedido
+   
+- Notification Hubs → APNs | HTTPS: Entrega de notificaciones push a dispositivos iOS
+  
+- Notification Hubs → FCM | HTTPS: Entrega de notificaciones push a dispositivos Android vía Firebase 
