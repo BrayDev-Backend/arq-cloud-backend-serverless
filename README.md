@@ -1,4 +1,4 @@
-# RapidGo Backend
+# RapidGo 
 <p align="center">
   <img src="assets/logo1.png" alt="RapidGo" width="400"/>
 </p>
