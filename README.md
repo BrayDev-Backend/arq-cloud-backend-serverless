@@ -61,9 +61,9 @@ El equipo directivo de RapidGo ha definido los siguientes requerimientos no func
 nueva arquitectura debe cumplir. El grupo debe verificar en los ADRs que las decisiones
 tomadas satisfacen estos requerimientos:
 
+![Requerimentos del Sistema](assets/requerimentos_sistema.png)
 
-
-3.4 Restricciones del proyecto
+### Restricciones del proyecto
 
 El grupo debe considerar estas restricciones al tomar las decisiones documentadas en los
 ADRs. Ignorar una restricción sin justificarlo explícitamente en el ADR correspondiente se
