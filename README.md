@@ -1,31 +1,94 @@
+# RapidGo Backend
 <p align="center">
   <img src="assets/logo1.png" alt="RapidGo" width="400"/>
 </p>
 
-# RapidGo Backend
+## Matriz de Control de Cambios
 
-Backend serverless para la aplicación móvil de servicios de domicilios RapidGo.
-Reemplaza una arquitectura monolítica con alta saturación en horas pico y sin
-tolerancia ante fallos por un sistema distribuido construido sobre Microsoft Azure,
-permitiendo escalabilidad automática a más de 500 solicitudes por segundo sin
-intervención manual y un modelo de costos basado en consumo real.
 
-## Stack de Servicios AZURE
+## Indice
 
-- Azure Functions: Lógica de negocio y procesamiento de pedidos
-- Azure API Management: Punto de entrada único, autenticación JWT y throttling
-- Azure Cosmos DB: Persistencia de pedidos, usuarios y estados de entrega
-- Azure Blob Storage: Almacenamiento de comprobantes e imágenes de productos
-- Azure Notification Hubs: Notificaciones push a Android (FCM) e iOS (APNs)
 
 ## Arquitectura
 
 ### Contexto del Sistema
 
-RapidGo opera en Medellín, Manizales y Pereira con una red de 340 repartidores
-activos. El sistema procesa en promedio 1.200 pedidos diarios con picos de hasta
-4.500 en días festivos. La arquitectura serverless elimina el costo fijo de
-infraestructura y garantiza disponibilidad del 99.9% mensual.
+### Descripción de la empresa
+RapidGo es una startup colombiana de servicios de domicilios fundada en 2022 que opera
+actualmente en Medellín, Manizales y Pereira. La plataforma conecta a clientes con
+restaurantes y tiendas locales a través de una aplicación móvil disponible en Android e iOS,
+desarrollada en React Native, y cuenta con una red de 340 repartidores activos.
+
+En sus primeros dos años de operación, RapidGo procesó en promedio 1.200 pedidos diarios
+con picos de hasta 4.500 pedidos en días festivos y fines de semana. Su modelo de negocio
+cobra una comisión del 18% por pedido completado, lo que hace que la disponibilidad del
+sistema sea directamente proporcional a sus ingresos: cada minuto de caída representa
+pérdidas estimadas de $180.000 COP en horas pico.
+
+### Situación tecnológica actual y problemas identificados
+
+El backend actual es una aplicación monolítica en Node.js desplegada en un servidor dedicado
+en un datacenter de Medellín. El equipo de tecnología ha documentado los siguientes
+problemas críticos que bloquean el crecimiento de la empresa:
+
+• Escalabilidad manual: en horas pico (12m-2pm y 6pm-9pm) el servidor se satura y el
+tiempo de respuesta de la API supera los 8 segundos, generando cancelaciones
+espontáneas de pedidos estimadas en un 12% del tráfico.
+
+• Costo fijo ineficiente: el servidor dedicado cuesta $4.200.000 COP mensuales
+independientemente del tráfico. En horas de baja demanda (2am-8am) el uso de CPU
+no supera el 4%, lo que representa un desperdicio significativo de recursos.
+
+• Despliegues con tiempo de inactividad: cualquier actualización del backend requiere 20-
+30 minutos de inactividad programada, impactando ventas nocturnas y generando mala
+experiencia de usuario.
+
+• Notificaciones no confiables: el sistema actual de push notifications tiene una tasa de
+entrega del 67% debido a la falta de integración directa con FCM y APNs, generando
+confusión en clientes sobre el estado de sus pedidos.
+
+• Sin tolerancia a fallos: no existe redundancia ni plan de recuperación. Un fallo de
+hardware implica caída total del servicio con tiempos históricos de restauración de 2 a 6
+horas.
+
+• Deuda técnica en autenticación: el manejo de tokens JWT está implementado de forma
+artesanal en el monolito, sin un gateway centralizado, lo que dificulta agregar nuevos
+clientes (app web, API pública) en el futuro.
+
+### Requerimientos para la nueva arquitectura
+
+El equipo directivo de RapidGo ha definido los siguientes requerimientos no funcionales que la
+nueva arquitectura debe cumplir. El grupo debe verificar en los ADRs que las decisiones
+tomadas satisfacen estos requerimientos:
+
+
+
+3.4 Restricciones del proyecto
+
+El grupo debe considerar estas restricciones al tomar las decisiones documentadas en los
+ADRs. Ignorar una restricción sin justificarlo explícitamente en el ADR correspondiente se
+considera un error de diseño:
+
+• El equipo de desarrollo de RapidGo tiene experiencia en Node.js y Python, pero no en
+Java ni .NET. Las Functions deben implementarse en uno de estos lenguajes.
+
+• Presupuesto inicial limitado: se deben priorizar servicios con capa gratuita. El gasto
+mensual en Azure no debe superar los $50 USD durante la fase piloto.
+
+• La base de datos actual es MySQL relacional con 3 años de datos históricos. Si se
+propone un cambio de paradigma (relacional a NoSQL), debe estar explícitamente
+justificado en el ADR-02.
+
+• Los datos de usuarios colombianos deben almacenarse en la región Brazil South o East
+US por latencia y consideraciones de soberanía de datos.
+
+• La app móvil en React Native no se rediseñará. La nueva API debe mantener
+compatibilidad con los contratos de endpoints actuales (mismas rutas y estructura de
+respuesta JSON).
+
+• El equipo de infraestructura es de una sola persona. La solución debe minimizar la
+carga operativa y evitar servicios que requieran administración manual de servidores o
+clusters.
 
 ## Diagrama C1
 
