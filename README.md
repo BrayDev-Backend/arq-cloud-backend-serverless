@@ -9,7 +9,7 @@
 ## Indice
 
 
-## Arquitectura
+
 
 ## Contexto del Sistema
 
@@ -90,7 +90,9 @@ respuesta JSON).
 carga operativa y evitar servicios que requieran administración manual de servidores o
 clusters.
 
-## Diagrama C1
+## Arquitectura
+
+### Diagrama C1
 
 ![Diagrama de contexto C1](assets/DiagramC1-Serverless.drawio.png)
 
@@ -125,7 +127,7 @@ clusters.
 - AppMovil → APNs | Envía notificaciones push iOS: APNs es el servicio de Apple equivalente a FCM, indispensable para notificaciones en dispositivos iPhone
 
 
-## Diagrama C2
+### Diagrama C2
 
 ![Diagrama de contexto C1](assets/DiagramC2-Serverless.drawio.png)
 
