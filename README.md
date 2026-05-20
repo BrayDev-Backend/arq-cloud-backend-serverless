@@ -183,7 +183,7 @@ comprobantes de entrega, imágenes de productos y exportes de reportes operacion
 ### Azure Notification Hubs
 -Se implementa Notification Hubs para enviar notificaciones push multiplataforma en tiempo real, informando a los usuarios sobre cambios de estado ('pedido confirmado', 'en camino', 'entregado'). Se selecciona el tier Free (1,000,000 de envíos/mes) por ser suficiente para el volumen esperado en fase de MVP y pruebas. La configuración utiliza FCM v1 para Android (protocolo moderno, no obsoleto) y APNs con autenticación por token para iOS. La integración con Azure Functions permite que, al actualizarse un estado en Cosmos DB, se dispare automáticamente la notificación correspondiente al dispositivo del usuario.
 
-##Logs de ejecución Azure Functions
+## Logs de ejecución Azure Functions
 -RapidGo es una API serverless desplegada en Azure Functions que expone endpoints HTTP para la gestión de pedidos. El servicio se conecta a Azure Application Insights para recopilar telemetría y trazas de solicitudes
 
 ### Registrar Pedido
