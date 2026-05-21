@@ -198,3 +198,19 @@ Esta función recibe una solicitud HTTP POST con los datos del pedido y lo regis
 -Esta función recibe una solicitud HTTP GET y retorna el historial de pedidos. Una respuesta exitosa devuelve el código 200 OK, junto con la lista de registros encontrados en el sistema.
 ![logs actualizar estado](assets/consultar_historial.png)
 
+## Notifications Hubs
+RapidGo utiliza Azure Notification Hubs para el envío de notificaciones push a los usuarios cuando el estado de un pedido es actualizado.
+### Configuración del hub
+El hub fue creado y configurado correctamente bajo el namespace rapidgo-hub-namespaces/rapidgo-hub, con soporte para las siguientes plataformas:
+
+•Apple (APNS)
+
+•Google (FCM)
+![config hubs](assets/logs-notifications-hubs.jpeg)
+
+### Prueba de notificación
+Al actualizar el estado de un pedido, la función actualizar_estado envía automáticamente una notificación push. El resultado del test confirma que la integración funciona correctamente
+
+![log notification hub](assets/test-run_notifications.jpeg)
+
+
