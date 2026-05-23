@@ -110,7 +110,21 @@ clusters.
 > #### Restaurante
 > Actor de negocio que publica su catálogo de productos y recibe los pedidos generados por los clientes.
 
-### Sistemas externos
+### Sistemas
+
+> #### Pasarela de Pagos
+> Procesa los cobros realizados a los clientes y comisiones del 18% a repartidores 
+
+> #### Maps API
+> El aplicativo consume un API de navegacion para que los repartidores tomen la mejor ruta y calculen el tiempo
+
+> #### FCM
+> Envía notificaciones push Android
+
+> #### APNS
+> Envía notificaciones push iOS
+
+### Interacciones del sistema
 
 Los clientes utilizan la aplicación móvil para realizar pedidos, modificarlos u eliminarlos, consultar estados y efectuar pagos en línea. cuando se realiza un pedido, la plataforma coordina automáticamente la interacción con el restaurante encargado de prepararlo y con el repartidor asignado para la entrega.
 
@@ -119,21 +133,7 @@ Para realizar el proceso de entrega, RapidGo consume servicios externos como MAP
 Por otra parte, los administradores utilizan la plataforma para supervisar el funcionamiento operativo, monitorear pedidos y gestionar fallas dentro del sistema.
 
 
-### Interacciones del sistema
 
-#### Actores → AppMovil
-
-- Cliente → AppMovil | Crea, edita y elimina pedidos: El cliente es el actor principal del negocio. Sin él no hay pedidos ni ingresos para RapidGo 
-- Repartidor → AppMovil | Asigna y notifica pedidos: El repartidor gestiona sus entregas y rutas directamente desde la app móvil 
-- Administrador → AppMovil | Reporta métricas y estado de la operación: El administrador supervisa clientes, repartidores y restaurantes desde un único punto 
-- Restaurante → AppMovil | Gestiona su catálogo: El restaurante añade, actualiza y elimina productos para que los clientes puedan ordenar 
-
-#### AppMovil → Sistemas externos
-
-- AppMovil → Pasarela de Pagos | Procesa cobros online: RapidGo cobra una comisión del 18% por pedido completado, lo que hace indispensable un sistema de cobro en línea 
-- AppMovil → Maps API | Consulta rutas dinámicas: Los repartidores necesitan navegación para las entregas y los clientes necesitan ver el seguimiento de su pedido en tiempo real 
-- AppMovil → FCM | Envía notificaciones push Android: FCM es el estándar de Google para notificaciones en dispositivos Android, necesario para informar cambios de estado del pedido
-- AppMovil → APNs | Envía notificaciones push iOS: APNs es el servicio de Apple equivalente a FCM, indispensable para notificaciones en dispositivos iPhone
 
 
 ### Diagrama C2
