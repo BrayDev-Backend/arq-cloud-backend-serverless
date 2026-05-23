@@ -96,7 +96,7 @@ clusters.
 
 ![Diagrama de contexto C1](assets/DiagramC1-Serverless.drawio.png)
 
-### Usuarios/Actores
+### Actores
 
 > #### Cliente
 > Es el actor principal del negocio, sin él no hay pedidos ni ingresos. Interactúa con la app para crear, seguir y cancelar pedidos.
