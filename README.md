@@ -112,17 +112,17 @@ clusters.
 
 ### Sistemas
 
-> #### Pasarela de Pagos
-> Procesa los cobros realizados a los clientes y comisiones del 18% a repartidores 
+> #### FCM
+> Firebase Cloud Messaging, necesario para enviar notificaciones push a dispositivos Android. Es el estándar de Google para este propósito.
+
+> #### APNs
+> Apple Push Notification Service, equivalente de FCM pero para dispositivos iOS. Sin él no hay notificaciones en iPhone.
+
+> #### Pasarela de pagos
+> Es el modelo de negocio de RapidGo encargado de realizar cobros a clientes por pedido y separar comision del 18% a los repartidores por pedido completado.
 
 > #### Maps API
-> El aplicativo consume un API de navegacion para que los repartidores tomen la mejor ruta y calculen el tiempo
-
-> #### FCM
-> Envía notificaciones push Android
-
-> #### APNS
-> Envía notificaciones push iOS
+> Los repartidores necesitan navegación para las rutas de entrega y los clientes necesitan ver el seguimiento en tiempo real.
 
 ### Interacciones del sistema
 
