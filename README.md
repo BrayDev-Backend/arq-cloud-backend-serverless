@@ -112,17 +112,12 @@ clusters.
 
 ### Sistemas externos
 
-> #### FCM
-> Firebase Cloud Messaging, necesario para enviar notificaciones push a dispositivos Android. Es el estándar de Google para este propósito.
+Los clientes utilizan la aplicación móvil para realizar pedidos, modificarlos u eliminarlos, consultar estados y efectuar pagos en línea. cuando se realiza un pedido, la plataforma coordina automáticamente la interacción con el restaurante encargado de prepararlo y con el repartidor asignado para la entrega.
 
-> #### APNs
-> Apple Push Notification Service, equivalente de FCM pero para dispositivos iOS. Sin él no hay notificaciones en iPhone.
+Para realizar el proceso de entrega, RapidGo consume servicios externos como MAPS API para calcular rutas y tiempos estimados, mientras que las notificaciones en tiempo real son enviadas mediante FCM (Notificaciones PUSH para android atraves de firebase) y APNs (Notificaciones PUSH para Ios) para mantener para enviar informacion al cliente sobre la entrega y el repartidor.
 
-> #### Pasarela de pagos
-> Es el modelo de negocio de RapidGo encargado de realizar cobros a clientes por pedido y separar comision del 18% a los repartidores por pedido completado.
+Por otra parte, los administradores utilizan la plataforma para supervisar el funcionamiento operativo, monitorear pedidos y gestionar fallas dentro del sistema.
 
-> #### Maps API
-> Los repartidores necesitan navegación para las rutas de entrega y los clientes necesitan ver el seguimiento en tiempo real.
 
 ### Interacciones del sistema
 
