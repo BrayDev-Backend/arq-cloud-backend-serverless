@@ -126,15 +126,11 @@ clusters.
 
 ### Interacciones del sistema
 
-Los clientes utilizan la aplicación móvil para realizar pedidos, modificarlos u eliminarlos, consultar estados y efectuar pagos en línea. cuando se realiza un pedido, la plataforma coordina automáticamente la interacción con el restaurante encargado de prepararlo y con el repartidor asignado para la entrega.
+Los clientes utilizan la aplicación móvil para realizar pedidos, modificarlos u eliminarlos, consultar estados y efectuar pagos en línea. Cuando se realiza un pedido, la plataforma coordina automáticamente la interacción con el restaurante encargado de prepararlo y con el repartidor asignado para la entrega.
 
-Para realizar el proceso de entrega, RapidGo consume servicios externos como MAPS API para calcular rutas y tiempos estimados, mientras que las notificaciones en tiempo real son enviadas mediante FCM (Notificaciones PUSH para android atraves de firebase) y APNs (Notificaciones PUSH para Ios) para mantener para enviar informacion al cliente sobre la entrega y el repartidor.
+Para realizar el proceso de entrega, RapidGo consume servicios externos como MAPS API para calcular rutas y tiempos estimados, mientras que las notificaciones en tiempo real son enviadas mediante FCM (Notificaciones PUSH para android atraves de firebase) y APNs (Notificaciones PUSH para Ios) para enviar informacion al cliente sobre la entrega y el repartidor.
 
 Por otra parte, los administradores utilizan la plataforma para supervisar el funcionamiento operativo, monitorear pedidos y gestionar fallas dentro del sistema.
-
-
-
-
 
 ### Diagrama C2
 
