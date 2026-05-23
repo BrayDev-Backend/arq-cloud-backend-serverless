@@ -100,9 +100,15 @@ clusters.
 
 > #### Cliente
 > Es el actor principal del negocio, sin él no hay pedidos ni ingresos. Interactúa con la app para crear, seguir y cancelar pedidos.
-- Repartidor — actor operativo clave, acepta pedidos y actualiza el estado de la entrega en tiempo real desde la app móvil.
-- Administrador — actor interno de RapidGo que gestiona la plataforma, monitorea operaciones y administra restaurantes y usuarios.
-- Restaurante/Tienda — actor de negocio que publica su catálogo de productos y recibe los pedidos generados por los clientes.
+
+> #### Repartidor
+> Actor operativo clave, acepta pedidos y actualiza el estado de la entrega en tiempo real desde la app móvil.
+
+> #### Administrador
+> Actor interno de RapidGo que gestiona la plataforma, monitorea operaciones y administra restaurantes y usuarios.
+
+> #### Restaurante
+> Actor de negocio que publica su catálogo de productos y recibe los pedidos generados por los clientes.
 
 ### Sistemas externos
 
