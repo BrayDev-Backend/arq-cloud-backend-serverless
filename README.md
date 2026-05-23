@@ -171,31 +171,31 @@ comprobantes de entrega, imágenes de productos y exportes de reportes operacion
 
 ### Azure API Management
 
--Se implementa API Management como único punto de entrada para la app móvil, desacoplando el cliente de las funciones backend. Esto permite validar tokens JWT centralizadamente, aplicar throttling de 10 peticiones por minuto por usuario (extrayendo el 'sub' del token) para prevenir abuso. El tier Developer se selecciona por incluir todas estas características sin el costo de tiers superiores, siendo adecuado para la fase de desarrollo y pruebas del proyecto.
+- Se implementa API Management como único punto de entrada para la app móvil, desacoplando el cliente de las funciones backend. Esto permite validar tokens JWT centralizadamente, aplicar throttling de 10 peticiones por minuto por usuario (extrayendo el 'sub' del token) para prevenir abuso. El tier Developer se selecciona por incluir todas estas características sin el costo de tiers superiores, siendo adecuado para la fase de desarrollo y pruebas del proyecto.
 
 ### Azure Cosmos DB
 
--La responsabilidad en rapidGo será en la persistencia de pedidos, usuarios y estados de entrega. su modelo de datos sin esquema fijo permite que RapidGo almacene pedidos con atributos variables  La elección de la API NoSQL nativa garantiza integración óptima con Azure Functions mediante bindings. Se activa el Free Tier (1,000 RU/s, 25 GB).
+- La responsabilidad en rapidGo será en la persistencia de pedidos, usuarios y estados de entrega. su modelo de datos sin esquema fijo permite que RapidGo almacene pedidos con atributos variables  La elección de la API NoSQL nativa garantiza integración óptima con Azure Functions mediante bindings. Se activa el Free Tier (1,000 RU/s, 25 GB).
 
 ###  Azure Storage Account (Blob Storage)
--Se utiliza la Storage Account (LRS Standard, Hot tier) para almacenar archivos no estructurados: comprobantes de entrega (fotos tomadas por repartidores), imágenes de productos (catalogos de comercios) y reportes operacionales exportados. El acceso público anónimo se mantiene deshabilitado, requiriendo claves de acceso o tokens SAS para garantizar seguridad La redundancia LRS es suficiente para un entorno de desarrollo, y el tier Hot asegura baja latencia para archivos consultados frecuentemente.
+- Se utiliza la Storage Account (LRS Standard, Hot tier) para almacenar archivos no estructurados: comprobantes de entrega (fotos tomadas por repartidores), imágenes de productos (catalogos de comercios) y reportes operacionales exportados. El acceso público anónimo se mantiene deshabilitado, requiriendo claves de acceso o tokens SAS para garantizar seguridad La redundancia LRS es suficiente para un entorno de desarrollo, y el tier Hot asegura baja latencia para archivos consultados frecuentemente.
 
 ### Azure Notification Hubs
--Se implementa Notification Hubs para enviar notificaciones push multiplataforma en tiempo real, informando a los usuarios sobre cambios de estado ('pedido confirmado', 'en camino', 'entregado'). Se selecciona el tier Free (1,000,000 de envíos/mes) por ser suficiente para el volumen esperado en fase de MVP y pruebas. La configuración utiliza FCM v1 para Android (protocolo moderno, no obsoleto) y APNs con autenticación por token para iOS. La integración con Azure Functions permite que, al actualizarse un estado en Cosmos DB, se dispare automáticamente la notificación correspondiente al dispositivo del usuario.
+- Se implementa Notification Hubs para enviar notificaciones push multiplataforma en tiempo real, informando a los usuarios sobre cambios de estado ('pedido confirmado', 'en camino', 'entregado'). Se selecciona el tier Free (1,000,000 de envíos/mes) por ser suficiente para el volumen esperado en fase de MVP y pruebas. La configuración utiliza FCM v1 para Android (protocolo moderno, no obsoleto) y APNs con autenticación por token para iOS. La integración con Azure Functions permite que, al actualizarse un estado en Cosmos DB, se dispare automáticamente la notificación correspondiente al dispositivo del usuario.
 
 ## Logs de ejecución Azure Functions
--RapidGo es una API serverless desplegada en Azure Functions que expone endpoints HTTP para la gestión de pedidos. El servicio se conecta a Azure Application Insights para recopilar telemetría y trazas de solicitudes
+- RapidGo es una API serverless desplegada en Azure Functions que expone endpoints HTTP para la gestión de pedidos. El servicio se conecta a Azure Application Insights para recopilar telemetría y trazas de solicitudes
 
 ### Registrar Pedido
 Esta función recibe una solicitud HTTP POST con los datos del pedido y lo registra en el sistema. Una respuesta exitosa devuelve el código 201 Created, indicando que el recurso fue creado correctamente.
 ![logs registrar pedido](assets/registrar_pedido.png)
 
 ### Actualizar Estado
--Esta función recibe una solicitud HTTP PUT con el identificador del pedido y el nuevo estado, y aplica la actualización en el sistema. Una respuesta exitosa devuelve el código 200 OK, confirmando que el recurso fue modificado correctamente.
+- Esta función recibe una solicitud HTTP PUT con el identificador del pedido y el nuevo estado, y aplica la actualización en el sistema. Una respuesta exitosa devuelve el código 200 OK, confirmando que el recurso fue modificado correctamente.
 ![logs actualizar estado](assets/actualizar_estado.png)
 
 ### Consultar Historial
--Esta función recibe una solicitud HTTP GET y retorna el historial de pedidos. Una respuesta exitosa devuelve el código 200 OK, junto con la lista de registros encontrados en el sistema.
+- Esta función recibe una solicitud HTTP GET y retorna el historial de pedidos. Una respuesta exitosa devuelve el código 200 OK, junto con la lista de registros encontrados en el sistema.
 ![logs actualizar estado](assets/consultar_historial.png)
 
 ## Notifications Hubs
@@ -203,9 +203,9 @@ RapidGo utiliza Azure Notification Hubs para el envío de notificaciones push a 
 ### Configuración del hub
 El hub fue creado y configurado correctamente bajo el namespace rapidgo-hub-namespaces/rapidgo-hub, con soporte para las siguientes plataformas:
 
-•Apple (APNS)
+- Apple (APNS)
 
-•Google (FCM)
+- Google (FCM)
 ![config hubs](assets/logs-notifications-hubs.jpeg)
 
 ### Prueba de notificación
