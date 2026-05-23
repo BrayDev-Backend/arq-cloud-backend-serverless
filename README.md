@@ -129,7 +129,7 @@ clusters.
 
 ### Diagrama C2
 
-![Diagrama de contexto C1](assets/DiagramC2-Serverless.drawio.png)
+![Diagrama de contexto C2](assets/C4-Model-C2-Diagram.drawio.png)
 
 #### Contenedores del Sistema
 
