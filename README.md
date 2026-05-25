@@ -12,7 +12,7 @@
 
 
 
-## Contexto del Sistema{#contexto-sistema}
+## Contexto del Sistema {#contexto-sistema}
 
 ### Descripción de la empresa
 RapidGo es una startup colombiana de servicios de domicilios fundada en 2022 que opera
