@@ -5,11 +5,6 @@
 
 ## Matriz de Control de Cambios
 
-
-## Indice
-
-1. [Arquitectura](#Arquitectura)
-   
 ## Índice
 
 1. [Contexto del Sistema](#contexto-del-sistema)
