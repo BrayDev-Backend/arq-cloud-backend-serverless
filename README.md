@@ -134,7 +134,7 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 ### Diagrama C2
 
-![Diagrama de contexto C2](assets/C4-Model-C2-Diagram.drawio.png)
+![Diagrama de contexto C2](assets/C4-model-C2-diagram-final.drawio.png)
 
 #### Contenedores del Sistema
 
