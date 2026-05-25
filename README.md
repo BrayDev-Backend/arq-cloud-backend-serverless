@@ -268,4 +268,5 @@ Al actualizar el estado de un pedido, la función actualizar_estado envía autom
 | **Contexto** | RapidGo debe mejorar tasa de entrega del 67% actual a >95%, integrando directamente con FCM (Android) y APNs (iOS).<br>Notificaciones por cambio de estado del pedido.<br>Presupuesto piloto limitado, equipo de una persona. |
 | **Alternativas evaluadas** | 1) **Azure Communication Services (ACS) – Push**: moderno, SDK unificados, pero sin free tier para push (~$0.005/notificación).<br>Para 1.200 pedidos/día (108.000 notificaciones/mes) excede $50 USD.<br>2) **Notification Hubs (Free tier)**: 1M notificaciones/mes gratis, manejo automático de registros por plataforma, retries, telemetría.<br>Desventaja: SDKs menos modernos (pero soporta REST). |
 | **Decisión** | Se elige **Notification Hubs** porque su free tier se ajusta perfectamente al volumen de RapidGo (108.000 notificaciones/mes), permitiendo cumplir >95% de entrega sin costo adicional.<br>Telemetría integrada ayuda al monitoreo.<br>Es el componente estándar en arquitectura serverless de Microsoft. |
+
 [[ _ TOC _ ]]
