@@ -138,6 +138,12 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Contenedores del Sistema
 
+> ##### Static Content
+> Gestions los componentes de la UI
+
+> ##### UI
+> Contiene los componentes esenciales del funcionamiento de la app movil 
+
 > ##### API Management
 > Punto de entrada único. Gestiona autenticación JWT, throttling por usuario y versionado de la API.
   
