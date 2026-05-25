@@ -1,3 +1,9 @@
-# ADR'S TEMP
+# ADR'S 
 
-# ADR-01: Uso de Azure Functions vs App Service para la lógica de negocio de RapidGo
+| Campo del ADR          | Descripcion |
+|------------------------|-------------|
+| Titulo                 |             |
+| Contexto               |             |
+| Alternativas evaluadas |             |
+| Decision               |             |
+| Consecuencias          |             |
