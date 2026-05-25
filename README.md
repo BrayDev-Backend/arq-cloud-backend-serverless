@@ -4,6 +4,141 @@
 </p>
 
 ## Matriz de Control de Cambios
+Aquí está la tabla de la matriz lista para pegar en tu README:
+
+| ID | Fecha | Solicitante | Descripción | Tipo | Prioridad | Impacto | Estado | Aprobador | Fecha cierre |
+|----|-------|-------------|-------------|------|-----------|---------|--------|-----------|--------------|
+| CC-001 | 2026-05-25 | yazlcano1017 | Revise README structure and content | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-002 | 2026-05-25 | yazlcano1017 | Revise README with updated project information | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-003 | 2026-05-25 | yazlcano1017 | Revise README.md for improved structure and content | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-004 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-005 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-006 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-007 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-008 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-009 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-010 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-011 | 2026-05-25 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-012 | 2026-05-25 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-013 | 2026-05-25 | yazlcano1017 | Revise README structure and content | Documentación | Media | Tiempo | En revisión | — | — |
+| CC-014 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-015 | 2026-05-25 | BrayDev-Backend | Delete README-ADRS.md | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-016 | 2026-05-25 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-017 | 2026-05-25 | BrayDev-Backend | Merge pull request #6 from BrayDev-Backend/readme-branch | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-018 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-019 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-020 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-021 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-022 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-023 | 2026-05-25 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-25 |
+| CC-024 | 2026-05-24 | BrayDev-Backend | Update README-ADRS.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-025 | 2026-05-24 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-026 | 2026-05-24 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-027 | 2026-05-24 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-028 | 2026-05-24 | BrayDev-Backend | Merge pull request #5 from BrayDev-Backend/readme-brayan | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-029 | 2026-05-24 | BrayDev-Backend | Added C4-model-C2-diagram-final.drawio.png | Técnico | Media | Alcance | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-030 | 2026-05-24 | BrayDev-Backend | Update README with company and system context | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-24 |
+| CC-031 | 2026-05-23 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-23 |
+| CC-032 | 2026-05-23 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-23 |
+| CC-033 | 2026-05-23 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-23 |
+| CC-034 | 2026-05-23 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-23 |
+| CC-035 | 2026-05-23 | yazlcano1017 | Update README with system overview and architecture | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-23 |
+| CC-036 | 2026-05-23 | BrayDev-Backend | Revise README with updated architecture and context | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-23 |
+| CC-037 | 2026-05-23 | BrayDev-Backend | Revise README.md with company and architecture details | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-23 |
+| CC-038 | 2026-05-22 | BrayDev-Backend | Update README with system context and architecture | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-039 | 2026-05-22 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-040 | 2026-05-22 | BrayDev-Backend | Update README with company and system context | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-041 | 2026-05-22 | BrayDev-Backend | Revise README.md with system and architecture details | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-042 | 2026-05-22 | BrayDev-Backend | Update README.md | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-043 | 2026-05-22 | BrayDev-Backend | Update README with company and system context | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-044 | 2026-05-22 | BrayDev-Backend | Update README with system context and architecture | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-045 | 2026-05-22 | BrayDev-Backend | Update README with company and system context | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-046 | 2026-05-22 | BrayDev-Backend | Added C4-Model-C2-Diagram.drawio.png | Técnico | Media | Alcance | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-047 | 2026-05-22 | BrayDev-Backend | Delete assets/C4 Model - C2 Diagram.drawio.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-048 | 2026-05-22 | BrayDev-Backend | Delete assets/DiagramC2-Serverless.drawio.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-049 | 2026-05-22 | BrayDev-Backend | Added C4 Model - C2 Diagram.drawio.png | Técnico | Media | Alcance | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-050 | 2026-05-22 | BrayDev-Backend | fate: Resolucion temporal de ADRS | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-22 |
+| CC-051 | 2026-05-21 | carlos14ms | logs postman | Funcional | Baja | Tiempo | Completado | carlos14ms | 2026-05-21 |
+| CC-052 | 2026-05-20 | carlos14ms | actualización readme notifications Hubs | Documentación | Media | Tiempo | Completado | carlos14ms | 2026-05-20 |
+| CC-053 | 2026-05-20 | carlos14ms | Logs Notifications hubs | Funcional | Baja | Tiempo | Completado | carlos14ms | 2026-05-20 |
+| CC-054 | 2026-05-19 | carlos14ms | Actualización readme | Documentación | Media | Tiempo | Completado | carlos14ms | 2026-05-19 |
+| CC-055 | 2026-05-19 | carlos14ms | Actualización readme, logs azure functions | Funcional | Baja | Tiempo | Completado | carlos14ms | 2026-05-19 |
+| CC-056 | 2026-05-19 | carlos14ms | Se añaden logs exitosos azure functions | Funcional | Baja | Tiempo | Completado | carlos14ms | 2026-05-19 |
+| CC-057 | 2026-05-14 | BrayDev-Backend | Merge pull request #4 from BrayDev-Backend/desarrollo-pedidos | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-05-14 |
+| CC-058 | 2026-05-14 | BrayDev-Backend | Merge pull request #3 from BrayDev-Backend/grupo-de-recursos | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-05-14 |
+| CC-059 | 2026-05-08 | carlos14ms | Descripción grupo de recursos | Documentación | Media | Tiempo | Completado | carlos14ms | 2026-05-08 |
+| CC-060 | 2026-05-08 | carlos14ms | Rename grupo de recursos.png to grupoderecursos.png | Técnico | Baja | Alcance | Completado | carlos14ms | 2026-05-08 |
+| CC-061 | 2026-05-08 | carlos14ms | Add files via upload | Técnico | Media | Alcance | Completado | carlos14ms | 2026-05-08 |
+| CC-062 | 2026-05-07 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-063 | 2026-05-07 | yazlcano1017 | Update README with project details and architecture | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-064 | 2026-05-07 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-065 | 2026-05-07 | yazlcano1017 | Update README.md with project details and diagrams | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-066 | 2026-05-07 | yazlcano1017 | Update README.md with project details and diagrams | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-067 | 2026-05-07 | yazlcano1017 | requerimentos | Documentación | Baja | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-068 | 2026-05-07 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-069 | 2026-05-07 | yazlcano1017 | Update README with company and architecture details | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-07 |
+| CC-070 | 2026-05-06 | EiderSantiagoAlvarezValbuena | feat: se agrega la function actualizar estado de pedidos | Funcional | Alta | Alcance, costo | Completado | EiderSantiagoAlvarezValbuena | 2026-05-06 |
+| CC-071 | 2026-05-06 | EiderSantiagoAlvarezValbuena | feat: se agrega la function al historico de pedidos | Funcional | Alta | Alcance, costo | Completado | EiderSantiagoAlvarezValbuena | 2026-05-06 |
+| CC-072 | 2026-05-06 | EiderSantiagoAlvarezValbuena | new: conexion a cosmosdb, function registrar pedidos | Funcional | Alta | Alcance, costo | Completado | EiderSantiagoAlvarezValbuena | 2026-05-06 |
+| CC-073 | 2026-05-05 | Wirtz-46 | Añadido DiagramC2-Serverless.drawio.png | Técnico | Media | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-074 | 2026-05-05 | Wirtz-46 | Delete assets/DiagramC2-Serverless.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-075 | 2026-05-05 | Wirtz-46 | Update README.md | Documentación | Media | Tiempo | Completado | Wirtz-46 | 2026-05-05 |
+| CC-076 | 2026-05-05 | Wirtz-46 | Añadido DiagramC2-Serverless.drawio.png | Técnico | Media | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-077 | 2026-05-05 | Wirtz-46 | Añadido DiagramC1-Serverless.drawio.png | Técnico | Media | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-078 | 2026-05-05 | Wirtz-46 | Delete assets/DiagramC1-Serverless.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-079 | 2026-05-05 | Wirtz-46 | Fix formatting and update README content | Documentación | Media | Tiempo | Completado | Wirtz-46 | 2026-05-05 |
+| CC-080 | 2026-05-05 | Wirtz-46 | Delete assets/diagram-c2.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-081 | 2026-05-05 | Wirtz-46 | Delete assets/diagram-c1.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-082 | 2026-05-05 | Wirtz-46 | Añadido DiagramC1-Serverless.drawio.png | Técnico | Media | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-083 | 2026-05-05 | Wirtz-46 | Delete DiagramServerless-C1.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-084 | 2026-05-05 | Wirtz-46 | Rename assets/C4 Diagram Serverless-C1 Diagram.drawio.png to DiagramServerless-C1.drawio.png | Técnico | Baja | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-085 | 2026-05-05 | yazlcano1017 | Refactor README.md for better structure and clarity | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-05 |
+| CC-086 | 2026-05-05 | Wirtz-46 | C1 Diagram Serverless.drawio.png | Técnico | Media | Alcance | Completado | Wirtz-46 | 2026-05-05 |
+| CC-087 | 2026-05-04 | yazlcano1017 | Update README with new diagrams and system context | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-04 |
+| CC-088 | 2026-05-04 | yazlcano1017 | Revise README with new diagram and service details | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-04 |
+| CC-089 | 2026-05-04 | yazlcano1017 | Update README with improved formatting and content | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-04 |
+| CC-090 | 2026-05-04 | yazlcano1017 | diagrama-c2 | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-04 |
+| CC-091 | 2026-05-04 | yazlcano1017 | diagram-c1 | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-04 |
+| CC-092 | 2026-05-04 | yazlcano1017 | Delete assets/C1-Diagram1.drawio.png | Técnico | Baja | Alcance | Completado | yazlcano1017 | 2026-05-04 |
+| CC-093 | 2026-05-04 | yazlcano1017 | Delete assets/C1.drawio.png | Técnico | Baja | Alcance | Completado | yazlcano1017 | 2026-05-04 |
+| CC-094 | 2026-05-03 | yazlcano1017 | Update README with project details and architecture | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-095 | 2026-05-03 | yazlcano1017 | Update README with improved formatting and content | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-096 | 2026-05-03 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-097 | 2026-05-03 | yazlcano1017 | Update README with new content and images | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-098 | 2026-05-03 | yazlcano1017 | Add files via upload | Técnico | Media | Alcance | Completado | yazlcano1017 | 2026-05-03 |
+| CC-099 | 2026-05-03 | BrayDev-Backend | fate: Delete assets/c1-diagram.drawio.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-03 |
+| CC-100 | 2026-05-03 | yazlcano1017 | Fix formatting and update content in README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-101 | 2026-05-03 | yazlcano1017 | C1-diagram | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-102 | 2026-05-03 | BrayDev-Backend | fate: Delete assets/c1-context.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-03 |
+| CC-103 | 2026-05-03 | yazlcano1017 | Refactor README content and formatting | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-104 | 2026-05-03 | yazlcano1017 | c1 | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-03 |
+| CC-105 | 2026-05-03 | BrayDev-Backend | fate: change on the md names | Técnico | Media | Alcance | Completado | BrayDev-Backend | 2026-05-03 |
+| CC-106 | 2026-05-02 | BrayDev-Backend | Delete assets/logo.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-107 | 2026-05-02 | yazlcano1017 | Update README formatting and logo size | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-108 | 2026-05-02 | yazlcano1017 | Update README.md | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-109 | 2026-05-02 | yazlcano1017 | actualizacion logo | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-110 | 2026-05-02 | yazlcano1017 | Update README.md to fix formatting and content | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-111 | 2026-05-02 | yazlcano1017 | logo RapidGo | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-112 | 2026-05-02 | yazlcano1017 | Update README.md with formatted content | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-113 | 2026-05-02 | yazlcano1017 | Update README.md content | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-114 | 2026-05-02 | yazlcano1017 | Update README with user roles and external systems | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-115 | 2026-05-02 | BrayDev-Backend | Delete assets/test zoom.drawio.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-116 | 2026-05-02 | BrayDev-Backend | fate: Added test zoom.drawio.png for watch the visibility | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-117 | 2026-05-02 | BrayDev-Backend | Delete assets/README.md | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-118 | 2026-05-02 | BrayDev-Backend | Delete assets/C4 Diagram Serverless-C1 Diagram.drawio.png | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-119 | 2026-05-02 | BrayDev-Backend | Format README.md with proper Markdown syntax | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-120 | 2026-05-02 | BrayDev-Backend | Fix formatting and update README structure | Documentación | Media | Tiempo | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-121 | 2026-05-02 | yazlcano1017 | Initialize README with project description and architecture | Documentación | Alta | Alcance, costo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-122 | 2026-05-02 | yazlcano1017 | Rename C4 Diagram Serverless-C1 Diagram.drawio(1).png to c1-context.png | Técnico | Baja | Alcance | Completado | yazlcano1017 | 2026-05-02 |
+| CC-123 | 2026-05-02 | yazlcano1017 | actualizacion diagrama C1 | Documentación | Media | Tiempo | Completado | yazlcano1017 | 2026-05-02 |
+| CC-124 | 2026-05-02 | BrayDev-Backend | Added C4 Diagram Serverless-C1 Diagram.drawio.png | Técnico | Media | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-125 | 2026-05-02 | BrayDev-Backend | fate: temp readme for import assets from draw.io | Técnico | Baja | Alcance | Completado | BrayDev-Backend | 2026-05-02 |
+| CC-126 | 2026-04-30 | BrayDev-Backend | Merge pull request #2 from BrayDev-Backend/carlos14ms-patch-1 | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-30 |
+| CC-127 | 2026-04-30 | carlos14ms | Create src | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-30 |
+| CC-128 | 2026-04-28 | BrayDev-Backend | fate: initialization of the repo and distribution of folders | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-28 |
+```
+
+Son los **128 commits** completos, listos para pegar directamente en tu README.
 
 ## Índice
 
