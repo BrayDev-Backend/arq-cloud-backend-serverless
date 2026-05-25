@@ -96,35 +96,35 @@ clusters.
 
 ![Diagrama de contexto C1](assets/DiagramC1-Serverless.drawio.png)
 
-### Actores
+#### Actores
 
-> #### Cliente
+> ##### Cliente
 > Es el actor principal del negocio, sin él no hay pedidos ni ingresos. Interactúa con la app para crear, seguir y cancelar pedidos.
 
-> #### Repartidor
+> ##### Repartidor
 > Actor operativo clave, acepta pedidos y actualiza el estado de la entrega en tiempo real desde la app móvil.
 
-> #### Administrador
+> ##### Administrador
 > Actor interno de RapidGo que gestiona la plataforma, monitorea operaciones y administra restaurantes y usuarios.
 
-> #### Restaurante
+> ##### Restaurante
 > Actor de negocio que publica su catálogo de productos y recibe los pedidos generados por los clientes.
 
-### Sistemas
+#### Sistemas
 
-> #### Pasarela de Pagos
+> ##### Pasarela de Pagos
 > Procesa los cobros realizados a los clientes y comisiones del 18% a repartidores 
 
-> #### Maps API
+> ##### Maps API
 > El aplicativo consume un API de navegación para que los repartidores tomen la mejor ruta y calculen el tiempo
 
-> #### FCM
+> ##### FCM
 > Envía notificaciones push Android
 
-> #### APNS
+> ##### APNS
 > Envía notificaciones push iOS
 
-### Interacciones del sistema
+#### Interacciones del sistema
 
 Los clientes utilizan la aplicación móvil para realizar pedidos, modificarlos u eliminarlos, consultar estados y efectuar pagos en línea. Cuando se realiza un pedido, la plataforma coordina automáticamente la interacción con el restaurante encargado de prepararlo y con el repartidor asignado para la entrega.
 
@@ -138,17 +138,20 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Contenedores del Sistema
 
-- API Management: Punto de entrada único. Gestiona autenticación JWT, throttling por usuario y versionado de la API
+> ##### API Management
+> Punto de entrada único. Gestiona autenticación JWT, throttling por usuario y versionado de la API.
   
-- Azure Functions: Lógica de negocio: registrar pedidos, actualizar estados, consultar historial y disparar notificaciones
+> ##### Azure Functions
+> Lógica de negocio: registrar pedidos, actualizar estados, consultar historial y disparar notificaciones.
   
-- Cosmos DB: Persistencia de pedidos, usuarios y estados de entrega
+> ##### Cosmos DB
+> Persistencia de pedidos, usuarios y estados de entrega.
   
-- Blob Storage: Almacenamiento de fotos de comprobantes de entrega, imágenes de productos y reportes
+> ##### Blob Storage
+> Almacenamiento de fotos de comprobantes de entrega, imágenes de productos y reportes.
   
-- Notification Hubs: Envío de notificaciones push en tiempo real a Android (FCM) y iOS (APNs) 
-
-
+> ##### Notification Hubs
+> Envío de notificaciones push en tiempo real a Android (FCM) y iOS (APNs).
 
 #### Protocolos de comunicación
 
