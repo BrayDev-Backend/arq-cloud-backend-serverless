@@ -6,38 +6,7 @@
 ## Matriz de Control de Cambios
 
 
-## Indice
-	1.	Contexto del Sistema
-	•	[Descripción de la empresa](#Descripcion-de-la-empresa)
-	•	Situación tecnológica actual y problemas identificados
-	•	Requerimientos para la nueva arquitectura
-	•	Restricciones del proyecto
-	2.	Arquitectura
-	•	Diagrama C1 – Contexto del sistema
-	•	Actores
-	•	Sistemas externos
-	•	Interacciones del sistema
-	•	Diagrama C2 – Contenedores
-	•	Contenedores del sistema
-	•	Protocolos de comunicación
-	•	Diagrama C3 – Componentes (pendiente)
-	3.	Grupo de recursos
-	•	Azure Functions
-	•	Azure API Management
-	•	Azure Cosmos DB
-	•	Azure Storage Account (Blob Storage)
-	•	Azure Notification Hubs
-	4.	Logs de ejecución Azure Functions
-	•	Registrar Pedido
-	•	Actualizar Estado
-	•	Consultar Historial
-	•	Notifications Hubs
-	5.	ADRs – Registros de Decisiones de Arquitectura
-	•	ADR-01: Azure Functions vs Azure App Service
-	•	ADR-02: Cosmos DB (NoSQL) vs Azure SQL Database
-	•	ADR-03: Azure API Management como gateway unificado
-	•	ADR-04: Azure Blob Storage vs Azure Files
-	•	ADR-05: Azure Notification Hubs vs Azure Communication Services
+
 
 
 
@@ -299,3 +268,4 @@ Al actualizar el estado de un pedido, la función actualizar_estado envía autom
 | **Contexto** | RapidGo debe mejorar tasa de entrega del 67% actual a >95%, integrando directamente con FCM (Android) y APNs (iOS).<br>Notificaciones por cambio de estado del pedido.<br>Presupuesto piloto limitado, equipo de una persona. |
 | **Alternativas evaluadas** | 1) **Azure Communication Services (ACS) – Push**: moderno, SDK unificados, pero sin free tier para push (~$0.005/notificación).<br>Para 1.200 pedidos/día (108.000 notificaciones/mes) excede $50 USD.<br>2) **Notification Hubs (Free tier)**: 1M notificaciones/mes gratis, manejo automático de registros por plataforma, retries, telemetría.<br>Desventaja: SDKs menos modernos (pero soporta REST). |
 | **Decisión** | Se elige **Notification Hubs** porque su free tier se ajusta perfectamente al volumen de RapidGo (108.000 notificaciones/mes), permitiendo cumplir >95% de entrega sin costo adicional.<br>Telemetría integrada ayuda al monitoreo.<br>Es el componente estándar en arquitectura serverless de Microsoft. |
+[[ _ TOC _ ]]
