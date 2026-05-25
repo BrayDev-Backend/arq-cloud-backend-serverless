@@ -9,6 +9,39 @@
 ## Indice
 
 1. [Arquitectura](#Arquitectura)
+   
+	1.	Contexto del Sistema
+  	•	[Descripción de la empresa](#Descripcion-de-la-empresa)
+  	•	Situación tecnológica actual y problemas identificados
+  	•	Requerimientos para la nueva arquitectura
+  	•	Restricciones del proyecto
+	2.	Arquitectura
+  	•	Diagrama C1 – Contexto del sistema
+  	•	Actores
+  	•	Sistemas externos
+  	•	Interacciones del sistema
+  	•	Diagrama C2 – Contenedores
+  	•	Contenedores del sistema
+  	•	Protocolos de comunicación
+  	•	Diagrama C3 – Componentes (pendiente)
+	3.	Grupo de recursos
+  	•	Azure Functions
+  	•	Azure API Management
+  	•	Azure Cosmos DB
+  	•	Azure Storage Account (Blob Storage)
+  	•	Azure Notification Hubs
+	4.	Logs de ejecución Azure Functions
+  	•	Registrar Pedido
+  	•	Actualizar Estado
+  	•	Consultar Historial
+  	•	Notifications Hubs
+	5.	ADRs – Registros de Decisiones de Arquitectura
+  	•	ADR-01: Azure Functions vs Azure App Service
+  	•	ADR-02: Cosmos DB (NoSQL) vs Azure SQL Database
+  	•	ADR-03: Azure API Management como gateway unificado
+  	•	ADR-04: Azure Blob Storage vs Azure Files
+  	•	ADR-05: Azure Notification Hubs vs Azure Communication Services
+
 
 
 
