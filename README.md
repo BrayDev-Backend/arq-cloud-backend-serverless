@@ -10,40 +10,45 @@
 
 1. [Arquitectura](#Arquitectura)
    
-	1.	Contexto del Sistema
-  	•	[Descripción de la empresa](#Descripcion-de-la-empresa)
-  	•	Situación tecnológica actual y problemas identificados
-  	•	Requerimientos para la nueva arquitectura
-  	•	Restricciones del proyecto
-	2.	Arquitectura
-  	•	Diagrama C1 – Contexto del sistema
-  	•	Actores
-  	•	Sistemas externos
-  	•	Interacciones del sistema
-  	•	Diagrama C2 – Contenedores
-  	•	Contenedores del sistema
-  	•	Protocolos de comunicación
-  	•	Diagrama C3 – Componentes (pendiente)
-	3.	Grupo de recursos
-  	•	Azure Functions
-  	•	Azure API Management
-  	•	Azure Cosmos DB
-  	•	Azure Storage Account (Blob Storage)
-  	•	Azure Notification Hubs
-	4.	Logs de ejecución Azure Functions
-  	•	Registrar Pedido
-  	•	Actualizar Estado
-  	•	Consultar Historial
-  	•	Notifications Hubs
-	5.	ADRs – Registros de Decisiones de Arquitectura
-  	•	ADR-01: Azure Functions vs Azure App Service
-  	•	ADR-02: Cosmos DB (NoSQL) vs Azure SQL Database
-  	•	ADR-03: Azure API Management como gateway unificado
-  	•	ADR-04: Azure Blob Storage vs Azure Files
-  	•	ADR-05: Azure Notification Hubs vs Azure Communication Services
+## Índice
 
+1. [Contexto del Sistema](#contexto-del-sistema)
+   - [Descripción de la empresa](#descripción-de-la-empresa)
+   - [Situación tecnológica actual y problemas identificados](#situación-tecnológica-actual-y-problemas-identificados)
+   - [Requerimientos para la nueva arquitectura](#requerimientos-para-la-nueva-arquitectura)
+   - [Restricciones del proyecto](#restricciones-del-proyecto)
 
+2. [Arquitectura](#arquitectura)
+   - [Diagrama C1](#diagrama-c1)
+     - [Actores](#actores)
+     - [Sistemas](#sistemas)
+     - [Interacciones del sistema](#interacciones-del-sistema)
+   - [Diagrama C2](#diagrama-c2)
+     - [Contenedores del Sistema](#contenedores-del-sistema)
+     - [Protocolos de comunicación](#protocolos-de-comunicación)
 
+3. [Grupo de recursos](#grupo-de-recursos)
+   - [Azure Functions](#azure-functions)
+   - [Azure API Management](#azure-api-management)
+   - [Azure Cosmos DB](#azure-cosmos-db)
+   - [Azure Storage Account (Blob Storage)](#azure-storage-account-blob-storage)
+   - [Azure Notification Hubs](#azure-notification-hubs)
+
+4. [Logs de ejecución Azure Functions](#logs-de-ejecución-azure-functions)
+   - [Registrar Pedido](#registrar-pedido)
+   - [Actualizar Estado](#actualizar-estado)
+   - [Consultar Historial](#consultar-historial)
+
+5. [Notifications Hubs](#notifications-hubs)
+   - [Configuración del hub](#configuración-del-hub)
+   - [Prueba de notificación](#prueba-de-notificación)
+
+6. [ADR's](#adrs)
+   - [ADR-01: Azure Functions vs Azure App Service](#adr-01-uso-de-azure-functions-consumption-plan-sobre-azure-app-service-para-la-lógica-de-negocio-de-rapidgo)
+   - [ADR-02: Cosmos DB vs Azure SQL Database](#adr-02-adopción-de-cosmos-db-nosql-en-lugar-de-azure-sql-database-para-persistencia-de-pedidos-usuarios-y-estados-de-entrega)
+   - [ADR-03: Azure API Management como gateway](#adr-03-implementación-de-azure-api-management-developer-tier-como-gateway-unificado-para-exponer-las-azure-functions)
+   - [ADR-04: Azure Blob Storage vs Azure Files](#adr-04-uso-de-azure-blob-storage-lrs-standard-sobre-azure-files-para-almacenar-comprobantes-de-entrega-imágenes-de-productos-y-reportes)
+   - [ADR-05: Azure Notification Hubs vs Azure Communication Services](#adr-05-implementación-de-azure-notification-hubs-free-tier-sobre-azure-communication-services-para-el-envío-de-notificaciones-push-a-clientes-y-repartidores)
 
 ## Contexto del Sistema 
 
