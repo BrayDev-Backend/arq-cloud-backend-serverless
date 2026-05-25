@@ -4,7 +4,7 @@
 </p>
 
 ## Matriz de Control de Cambios
-Aquí está la tabla de la matriz lista para pegar en tu README:
+
 
 | ID | Fecha | Solicitante | Descripción | Tipo | Prioridad | Impacto | Estado | Aprobador | Fecha cierre |
 |----|-------|-------------|-------------|------|-----------|---------|--------|-----------|--------------|
