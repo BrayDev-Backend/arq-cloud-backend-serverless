@@ -138,6 +138,12 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Contenedores del Sistema
 
+> ##### Static Content
+> Gestions los componentes de la UI
+
+> ##### UI
+> Contiene los componentes esenciales del funcionamiento de la app movil 
+
 > ##### API Management
 > Punto de entrada único. Gestiona autenticación JWT, throttling por usuario y versionado de la API.
   
@@ -155,20 +161,26 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Protocolos de comunicación
 
-- AppMóvil RapidGo → API Management | HTTPS | Todas las peticiones REST de la app móvil ingresan por este punto
-  
-- API Management → Azure Functions | HTTPS : El gateway enruta las peticiones validadas hacia las funciones correspondientes
-
-- Azure Functions → Cosmos DB | SDK de Cosmos DB:  Lectura y escritura de pedidos y usuarios usando el SDK oficial de Azure
-  
-- Azure Functions → Blob Storage | SDK de Azure Storage:  Almacenamiento de fotos de 
-comprobantes de entrega, imágenes de productos y exportes de reportes operacionales 
-  
-- Azure Functions → Notification Hubs | SDK de Notification Hubs:  Disparo de notificaciones push al cambiar el estado de un pedido
-   
-- Notification Hubs → APNs | HTTPS: Entrega de notificaciones push a dispositivos iOS
-  
-- Notification Hubs → FCM | HTTPS: Entrega de notificaciones push a dispositivos Android vía Firebase
+| **From**           | **To**             | **Description**                                                            |
+|--------------------|--------------------|----------------------------------------------------------------------------|
+| Administrador      | Static Content     | Carga los componentes de la UI                                             |
+| Administrador      | UI                 | Ve las interfaces para monitorear la app                                   |
+| Restaurantes       | Static Content     | Carga los componentes de la UI                                             |
+| Restaurantes       | UI                 | Ve las interfaces para monitorear pedidos y actualizar informacion         |
+| Repartidor         | Static Content     | Carga los componentes de la UI                                             |
+| Repartidor         | UI                 | Ve las interfaces para monitorear pedidos y ver rutas estimadas de entrega |
+| Cliente            | Static Content     | Carga los componentes de la UI                                             |
+| Cliente            | UI                 | Ve las interfaces para hacer pedidos, monitorear y ver restaurantes        |
+| Static Content     | UI                 | Carga los componentes propuestos en la UI                                  |
+| UI                 | API Management     | Hace peticiones a la API                                                   |
+| API Management     | Azure Functions    | Administra los endpoints                                                   |
+| Azure Functions    | Cosmos DB          | Guarda datos estructurados                                                 |
+| Azure Functions    | Blob Storage       | Guarda datos no estructurados                                              |
+| Azure Functions    | Pasarela de Pagos  | Hace las peticiones para pagos                                             |
+| Azure Functions    | Maps API           | Hace la peticion para cargar mapas y rutas especificas                     |
+| Azure Functions    | Notifications HUBS | Maneja el envio de notificaciones a los usuarios                           |
+| Notifications HUBS | APN's              | Gestions el envio de notificaciones push a dispositivos Apple              |
+| Notifications HUBS | FCM                | Gestions el envio de notificaciones push a dispositivos Android            |
 
 ## Grupo de recursos
 ![Grupo de recursos](assets/grupoderecursos.png)
