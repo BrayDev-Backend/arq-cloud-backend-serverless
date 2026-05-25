@@ -8,11 +8,11 @@
 
 ## Indice
 
-1. [Contexto del Sistema](#contexto-sistema)
+1. [Contexto del Sistema](#arquitectura)
 
 
 
-## Contexto del Sistema {#contexto-sistema}
+## Contexto del Sistema 
 
 ### Descripción de la empresa
 RapidGo es una startup colombiana de servicios de domicilios fundada en 2022 que opera
@@ -91,7 +91,7 @@ respuesta JSON).
 carga operativa y evitar servicios que requieran administración manual de servidores o
 clusters.
 
-## Arquitectura
+## Arquitectura (#arquitectura)
 
 ### Diagrama C1
 
