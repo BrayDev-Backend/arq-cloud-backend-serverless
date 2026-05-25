@@ -136,9 +136,6 @@ Aquí está la tabla de la matriz lista para pegar en tu README:
 | CC-126 | 2026-04-30 | BrayDev-Backend | Merge pull request #2 from BrayDev-Backend/carlos14ms-patch-1 | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-30 |
 | CC-127 | 2026-04-30 | carlos14ms | Create src | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-30 |
 | CC-128 | 2026-04-28 | BrayDev-Backend | fate: initialization of the repo and distribution of folders | Técnico | Alta | Alcance, costo | Completado | BrayDev-Backend | 2026-04-28 |
-```
-
-Son los **128 commits** completos, listos para pegar directamente en tu README.
 
 ## Índice
 
