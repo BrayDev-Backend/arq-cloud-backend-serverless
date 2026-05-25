@@ -8,7 +8,7 @@
 
 ## Indice
 
-1. [Contexto del Sistema](#arquitectura)
+1. [Arquitectura]
 
 
 
@@ -91,7 +91,7 @@ respuesta JSON).
 carga operativa y evitar servicios que requieran administración manual de servidores o
 clusters.
 
-## Arquitectura (#arquitectura)
+## Arquitectura 
 
 ### Diagrama C1
 
