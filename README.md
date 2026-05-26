@@ -410,6 +410,14 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 > ##### Motor de consultas
 > Componente interno de procesamiento (`Query Engine`). Se encarga de realizar la indexación automática de los documentos JSON entrantes y devuelve las confirmaciones de las transacciones.
 
+#### Interacciones del sistema
+
+1. **Petición inicial:** El módulo de persistencia ubicado en *Azure Functions* envía las peticiones HTTP/REST hacia la *Cuenta de Cosmos DB*.
+2. **Validación:** La cuenta valida las credenciales, autentica y dirige la petición hacia la *Base de datos* lógica.
+3. **Distribución:** La base de datos enruta la operación (ya sea de lectura o de escritura) hacia el *Contenedor NoSQL* específico.
+4. **Procesamiento interno:** El contenedor recibe la carga de trabajo y delega la ejecución física al *Motor de consultas*.
+5. **Retorno de estado:** Finalmente, el motor procesa el documento JSON, actualiza sus índices y retorna el estado de la operación (ej. guardado exitoso) directamente de vuelta hacia *Azure Functions*.
+
 ### Diagrama C3 - Azure Blob Storage
 
 ![Diagrama de componentes C3 Azure Blob Storage](assets/C3%20-%20Blob%20Storage.drawio.png)
@@ -436,13 +444,30 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 4. **Persistencia:** El contenedor aloja exitosamente el *Archivo Binario* en su estructura privada.
 5. **Confirmación:** Una vez que el archivo físico está persistido, se retorna un código de estado HTTP 201 (Created) directamente de vuelta a *Azure Functions*.
 
+### Diagrama C3 - Notificaciones Hub
+
+![Diagrama de componentes C3 Notificaciones Hub](assets/C3%20-%20Notificaciones%20Hub.drawio.png)
+
+#### Componentes Internos
+
+> ##### Administrador de credenciales
+> Módulo de seguridad (`Security Module`) que gestiona la autenticación leyendo el archivo de llave privada `serviceAccountKey.json` mapeado directamente desde Azure.
+
+> ##### Validador de instancia
+> Componente lógico (`Logic Component`) que verifica la inicialización del motor mediante la validación `if not firebase_admin._apps`. Esto es crucial para evitar errores de ejecución dual o sobrecarga en el servidor de funciones.
+
+> ##### Constructor de mensaje
+> Módulo ensamblador (`Payload Builder`) que instancia el objeto `messaging.Message()`. Aquí se define el cuerpo visible de la alerta (título y mensaje) junto con el diccionario de datos ocultos (como el ID del pedido y la URL de la imagen de evidencia).
+
+> ##### Motor de despacho
+> Componente de mensajería (`Messaging`) que recibe la orden previamente construida y se encarga de despachar la carga útil de manera asíncrona hacia la red global de Google para su distribución.
+
 #### Interacciones del sistema
 
-1. **Petición inicial:** El módulo de persistencia ubicado en *Azure Functions* envía las peticiones HTTP/REST hacia la *Cuenta de Cosmos DB*.
-2. **Validación:** La cuenta valida las credenciales, autentica y dirige la petición hacia la *Base de datos* lógica.
-3. **Distribución:** La base de datos enruta la operación (ya sea de lectura o de escritura) hacia el *Contenedor NoSQL* específico.
-4. **Procesamiento interno:** El contenedor recibe la carga de trabajo y delega la ejecución física al *Motor de consultas*.
-5. **Retorno de estado:** Finalmente, el motor procesa el documento JSON, actualiza sus índices y retorna el estado de la operación (ej. guardado exitoso) directamente de vuelta hacia *Azure Functions*.
+1. **Petición de inicialización (Credenciales):** *Azure Functions* inicia el flujo enviando una petición de inicialización al *Administrador de credenciales* para cargar las llaves de acceso.
+2. **Petición de inicialización (Validación):** Simultáneamente, *Azure Functions* se comunica con el *Validador de instancia* para asegurar que el SDK de Firebase se inicialice una única vez por instancia activa.
+3. **Paso de parámetros:** Una vez que el entorno ya está validado, *Azure Functions* envía la información específica del pedido (estado, ID, imágenes) hacia el *Constructor de mensaje*.
+4. **Disparo de la notificación:** El *Constructor de mensaje* entrega el objeto completamente estructurado al *Motor de despacho*, el cual ejecuta la salida asíncrona de la alerta push hacia los dispositivos correspondientes.
 
 #### Protocolos de comunicación
 
