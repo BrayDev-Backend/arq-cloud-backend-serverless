@@ -409,7 +409,7 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 1. **Entrada de tráfico:** El API Management actúa como gateway y enruta las solicitudes HTTP directamente hacia el function_app.py (Router V2).
 2. **Enrutamiento interno:** El router redirige las solicitudes según su método HTTP: las peticiones `POST` van a registrar_pedido, las `PUT` a actualizar_estado, y las `GET` a consultar_historial.
-3. **Procesamiento y orquestación:** * *registrar_pedido* guarda nuevos pedidos y actualiza información comunicándose con el Módulo de persistencia.
+3. **Procesamiento y orquestación:** * registrar_pedido guarda nuevos pedidos y actualiza información comunicándose con el Módulo de persistencia.
    * consultar_historial recupera el historial de pedidos desde el Módulo de persistencia.
    * actualizar_estado orquesta tres acciones: actualiza el estado en la base de datos (Módulo de persistencia), envía las imágenes o evidencias (Módulo de archivos) y genera notificaciones push para informar los cambios de estado (Módulo de alertas).
 4. **Ejecución en servicios administrados:** Los módulos se conectan con los contenedores externos mediante sus SDKs: el de persistencia ejecuta escrituras y lecturas en Cosmos DB, el de archivos almacena imágenes en Blob Storage, y el de alertas envía las notificaciones a los celulares a través de Firebase FCM.
@@ -460,9 +460,9 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-1. **Envío del archivo:** El Módulo de archivos ubicado en *Azure Functions* envía una solicitud HTTP con el archivo en bytes (imagen JPG/PNG) hacia la Cuenta de almacenamiento.
-2. **Autenticación y enrutamiento:** La *Cuenta de almacenamiento* valida la Cadena de Conexión y dirige el tráfico correspondiente hacia el Servicio Blob.
-3. **Ejecución de carga:** El *Servicio Blob* procesa la petición y ejecuta la operación de carga (`upload_blob`) apuntando al Contenedor de Archivos.
+1. **Envío del archivo:** El Módulo de archivos ubicado en Azure Functions envía una solicitud HTTP con el archivo en bytes (imagen JPG/PNG) hacia la Cuenta de almacenamiento.
+2. **Autenticación y enrutamiento:** La Cuenta de almacenamiento valida la Cadena de Conexión y dirige el tráfico correspondiente hacia el Servicio Blob.
+3. **Ejecución de carga:** El Servicio Blob procesa la petición y ejecuta la operación de carga (`upload_blob`) apuntando al Contenedor de Archivos.
 4. **Persistencia:** El contenedor aloja exitosamente el Archivo Binario en su estructura privada.
 5. **Confirmación:** Una vez que el archivo físico está persistido, se retorna un código de estado HTTP 201 (Created) directamente de vuelta a Azure Functions.
 
