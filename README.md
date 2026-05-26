@@ -153,6 +153,7 @@
    - [Diagrama C2](#diagrama-c2)
      - [Contenedores del Sistema](#contenedores-del-sistema)
      - [Protocolos de comunicación](#protocolos-de-comunicación)
+   - [Diagrama C3 - Azure API Management](#diagrama-c3-azure-api)
 
 3. [Grupo de recursos](#grupo-de-recursos)
    - [Azure Functions](#azure-functions)
@@ -176,6 +177,7 @@
    - [ADR-03: Azure API Management como gateway](#adr-03-implementación-de-azure-api-management-developer-tier-como-gateway-unificado-para-exponer-las-azure-functions)
    - [ADR-04: Azure Blob Storage vs Azure Files](#adr-04-uso-de-azure-blob-storage-lrs-standard-sobre-azure-files-para-almacenar-comprobantes-de-entrega-imágenes-de-productos-y-reportes)
    - [ADR-05: Azure Notification Hubs vs Azure Communication Services](#adr-05-implementación-de-azure-notification-hubs-free-tier-sobre-azure-communication-services-para-el-envío-de-notificaciones-push-a-clientes-y-repartidores)
+7. [Diagrama De Arquitectura](#diagrama-de-arquitectura)
 
 ## Contexto del Sistema 
 
