@@ -325,6 +325,29 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 > ##### Notification Hubs
 > Envío de notificaciones push en tiempo real a Android (FCM) y iOS (APNs).
 
+#### Protocolos de comunicación
+
+| **From**           | **To**             | **Description**                                                            |
+|--------------------|--------------------|----------------------------------------------------------------------------|
+| Administrador      | Static Content     | Carga los componentes de la UI                                             |
+| Administrador      | UI                 | Ve las interfaces para monitorear la app                                   |
+| Restaurantes       | Static Content     | Carga los componentes de la UI                                             |
+| Restaurantes       | UI                 | Ve las interfaces para monitorear pedidos y actualizar informacion         |
+| Repartidor         | Static Content     | Carga los componentes de la UI                                             |
+| Repartidor         | UI                 | Ve las interfaces para monitorear pedidos y ver rutas estimadas de entrega |
+| Cliente            | Static Content     | Carga los componentes de la UI                                             |
+| Cliente            | UI                 | Ve las interfaces para hacer pedidos, monitorear y ver restaurantes        |
+| Static Content     | UI                 | Carga los componentes propuestos en la UI                                  |
+| UI                 | API Management     | Hace peticiones a la API                                                   |
+| API Management     | Azure Functions    | Administra los endpoints                                                   |
+| Azure Functions    | Cosmos DB          | Guarda datos estructurados                                                 |
+| Azure Functions    | Blob Storage       | Guarda datos no estructurados                                              |
+| Azure Functions    | Pasarela de Pagos  | Hace las peticiones para pagos                                             |
+| Azure Functions    | Maps API           | Hace la peticion para cargar mapas y rutas especificas                     |
+| Azure Functions    | Notifications HUBS | Maneja el envio de notificaciones a los usuarios                           |
+| Notifications HUBS | APN's              | Gestions el envio de notificaciones push a dispositivos Apple              |
+| Notifications HUBS | FCM                | Gestions el envio de notificaciones push a dispositivos Android            |
+
 ### Diagrama C3 - Azure API Management
 
 ![Diagrama de componentes C3 API Management](assets/C3%20-%20API%20Managament.drawio.png)
@@ -468,29 +491,6 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 2. **Petición de inicialización (Validación):** Simultáneamente, *Azure Functions* se comunica con el *Validador de instancia* para asegurar que el SDK de Firebase se inicialice una única vez por instancia activa.
 3. **Paso de parámetros:** Una vez que el entorno ya está validado, *Azure Functions* envía la información específica del pedido (estado, ID, imágenes) hacia el *Constructor de mensaje*.
 4. **Disparo de la notificación:** El *Constructor de mensaje* entrega el objeto completamente estructurado al *Motor de despacho*, el cual ejecuta la salida asíncrona de la alerta push hacia los dispositivos correspondientes.
-
-#### Protocolos de comunicación
-
-| **From**           | **To**             | **Description**                                                            |
-|--------------------|--------------------|----------------------------------------------------------------------------|
-| Administrador      | Static Content     | Carga los componentes de la UI                                             |
-| Administrador      | UI                 | Ve las interfaces para monitorear la app                                   |
-| Restaurantes       | Static Content     | Carga los componentes de la UI                                             |
-| Restaurantes       | UI                 | Ve las interfaces para monitorear pedidos y actualizar informacion         |
-| Repartidor         | Static Content     | Carga los componentes de la UI                                             |
-| Repartidor         | UI                 | Ve las interfaces para monitorear pedidos y ver rutas estimadas de entrega |
-| Cliente            | Static Content     | Carga los componentes de la UI                                             |
-| Cliente            | UI                 | Ve las interfaces para hacer pedidos, monitorear y ver restaurantes        |
-| Static Content     | UI                 | Carga los componentes propuestos en la UI                                  |
-| UI                 | API Management     | Hace peticiones a la API                                                   |
-| API Management     | Azure Functions    | Administra los endpoints                                                   |
-| Azure Functions    | Cosmos DB          | Guarda datos estructurados                                                 |
-| Azure Functions    | Blob Storage       | Guarda datos no estructurados                                              |
-| Azure Functions    | Pasarela de Pagos  | Hace las peticiones para pagos                                             |
-| Azure Functions    | Maps API           | Hace la peticion para cargar mapas y rutas especificas                     |
-| Azure Functions    | Notifications HUBS | Maneja el envio de notificaciones a los usuarios                           |
-| Notifications HUBS | APN's              | Gestions el envio de notificaciones push a dispositivos Apple              |
-| Notifications HUBS | FCM                | Gestions el envio de notificaciones push a dispositivos Android            |
 
 ## Grupo de recursos
 ![Grupo de recursos](assets/grupoderecursos.png)
