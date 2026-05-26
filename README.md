@@ -351,9 +351,46 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-[cite_start]El proceso comienza cuando el cliente envía una petición HTTP hacia la URL pública del gateway[cite: 48, 50]. [cite_start]El Router API v1 recibe este tráfico y, dependiendo del verbo utilizado, lo dirige hacia la operación específica correspondiente (POST, PUT o GET)[cite: 4, 5].
+1. **Petición entrante:** El cliente envía una petición HTTP/JSON hacia la URL pública del gateway.
+2. **Enrutamiento:** El *Router API v1* recibe el tráfico y lo dirige a la operación específica (`POST`, `PUT` o `GET`) basándose en el verbo HTTP utilizado.
+3. **Validación de seguridad:** La petición atraviesa el *Motor de Políticas*, el cual valida la entrada y permite el paso libre al tener la exigencia de suscripción deshabilitada.
+4. **Envío al servidor real:** Finalmente, el *Backend Routing* toma esta petición ya validada y la dispara internamente por HTTPS hacia el contenedor de Azure Functions.
 
-[cite_start]Una vez categorizada, la petición atraviesa el Motor de Políticas, el cual la valida y permite su paso sin exigir una llave de suscripción[cite: 6, 7]. [cite_start]Posteriormente, el Backend Routing toma esta petición validada y la envía limpia por HTTPS[cite: 8]. [cite_start]En todo este flujo, el API Management funciona estrictamente como un proxy o "embudo" [cite: 56][cite_start], encargándose de traducir la dirección pública y disparar la llamada interna hacia el servidor donde reside el código de Azure Functions[cite: 57].
+### Diagrama C3 - Azure Functions
+
+![Diagrama de componentes C3 Azure Functions](assets/C3%20-%20Azure%20Functions.drawio.png)
+
+#### Componentes Internos
+
+> ##### function_app.py (Router V2)
+> Módulo de configuración principal. Gestiona el enrutamiento de entrada y expone los endpoints de la función.
+
+> ##### registrar_pedido
+> Disparador HTTP de Python (`Python HTTP Trigger`) que recibe exclusivamente llamadas `POST` para la creación de información.
+
+> ##### actualizar_estado
+> Disparador HTTP de Python (`Python HTTP Trigger`) que recibe llamadas `PUT` y se encarga de gestionar los archivos adjuntos.
+
+> ##### consultar_historial
+> Disparador HTTP de Python (`Python HTTP Trigger`) dedicado a recibir llamadas `GET` para la lectura de datos.
+
+> ##### Módulo de persistencia
+> Componente basado en el SDK `azure-cosmos` que expone la funcionalidad `.upsert_item()` y las peticiones `SELECT` para la base de datos.
+
+> ##### Módulo de archivos
+> Componente basado en el SDK `azure-storage-blob` que expone la funcionalidad `.upload_blob()` para el manejo de multimedia.
+
+> ##### Módulo de alertas
+> Componente basado en el SDK `firebase-admin` que expone la funcionalidad `messaging.Message()` para armar notificaciones push.
+
+#### Interacciones del sistema
+
+1. **Entrada de tráfico:** El *API Management* actúa como gateway y enruta las solicitudes HTTP directamente hacia el *function_app.py (Router V2)*.
+2. **Enrutamiento interno:** El router redirige las solicitudes según su método HTTP: las peticiones `POST` van a *registrar_pedido*, las `PUT` a *actualizar_estado*, y las `GET` a *consultar_historial*.
+3. **Procesamiento y orquestación:** * *registrar_pedido* guarda nuevos pedidos y actualiza información comunicándose con el Módulo de persistencia.
+   * *consultar_historial* recupera el historial de pedidos desde el Módulo de persistencia.
+   * *actualizar_estado* orquesta tres acciones: actualiza el estado en la base de datos (Módulo de persistencia), envía las imágenes o evidencias (Módulo de archivos) y genera notificaciones push para informar los cambios de estado (Módulo de alertas).
+4. **Ejecución en servicios administrados:** Los módulos se conectan con los contenedores externos mediante sus SDKs: el de persistencia ejecuta escrituras y lecturas en *Cosmos DB*, el de archivos almacena imágenes en *Blob Storage*, y el de alertas envía las notificaciones a los celulares a través de *Firebase FCM*.
 
 #### Protocolos de comunicación
 
