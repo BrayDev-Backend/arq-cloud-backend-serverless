@@ -410,6 +410,32 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 > ##### Motor de consultas
 > Componente interno de procesamiento (`Query Engine`). Se encarga de realizar la indexación automática de los documentos JSON entrantes y devuelve las confirmaciones de las transacciones.
 
+### Diagrama C3 - Azure Blob Storage
+
+![Diagrama de componentes C3 Azure Blob Storage](assets/C3%20-%20Blob%20Storage.drawio.png)
+
+#### Componentes Internos
+
+> ##### Cuenta de almacenamiento
+> Componente de infraestructura (`Infraestructure Node`) que gestiona las claves de acceso y define el endpoint base para el almacenamiento.
+
+> ##### Servicio Blob
+> API lógica (`Logical API`) que expone la interfaz RESTful necesaria para la manipulación y gestión de objetos binarios.
+
+> ##### Contenedor de Archivos
+> Contenedor de almacenamiento (`Storage Container`) que actúa como una agrupación lógica de archivos con un nivel de acceso privado.
+
+> ##### Archivo Binario
+> Objeto de datos (`Data Object`) que representa el archivo físico final (las imágenes JPG/PNG) persistido en la nube.
+
+#### Interacciones del sistema
+
+1. **Envío del archivo:** El Módulo de archivos ubicado en *Azure Functions* envía una solicitud HTTP con el archivo en bytes (imagen JPG/PNG) hacia la *Cuenta de almacenamiento*.
+2. **Autenticación y enrutamiento:** La *Cuenta de almacenamiento* valida la Cadena de Conexión y dirige el tráfico correspondiente hacia el *Servicio Blob*.
+3. **Ejecución de carga:** El *Servicio Blob* procesa la petición y ejecuta la operación de carga (`upload_blob`) apuntando al *Contenedor de Archivos*.
+4. **Persistencia:** El contenedor aloja exitosamente el *Archivo Binario* en su estructura privada.
+5. **Confirmación:** Una vez que el archivo físico está persistido, se retorna un código de estado HTTP 201 (Created) directamente de vuelta a *Azure Functions*.
+
 #### Interacciones del sistema
 
 1. **Petición inicial:** El módulo de persistencia ubicado en *Azure Functions* envía las peticiones HTTP/REST hacia la *Cuenta de Cosmos DB*.
