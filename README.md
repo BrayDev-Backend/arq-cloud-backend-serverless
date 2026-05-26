@@ -392,6 +392,32 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
    * *actualizar_estado* orquesta tres acciones: actualiza el estado en la base de datos (Módulo de persistencia), envía las imágenes o evidencias (Módulo de archivos) y genera notificaciones push para informar los cambios de estado (Módulo de alertas).
 4. **Ejecución en servicios administrados:** Los módulos se conectan con los contenedores externos mediante sus SDKs: el de persistencia ejecuta escrituras y lecturas en *Cosmos DB*, el de archivos almacena imágenes en *Blob Storage*, y el de alertas envía las notificaciones a los celulares a través de *Firebase FCM*.
 
+### Diagrama C3 - Azure Cosmos DB
+
+![Diagrama de componentes C3 Azure Cosmos DB](assets/C3%20-%20Cosmos%20DB.drawio.png)
+
+#### Componentes Internos
+
+> ##### Cuenta de Cosmos DB
+> Nodo de infraestructura (`Infrastructure Node`) que gestiona las credenciales de acceso, como las cadenas de conexión (Connection Strings), y define la URI del endpoint principal.
+
+> ##### Base de datos
+> Base de datos lógica de RapidGo (`Logical database`). En este nivel se agrupan los contenedores subyacentes y se gestiona la capacidad de rendimiento a través de las Unidades de Solicitud (RU/s).
+
+> ##### Contenedor NoSQL
+> Colección principal de datos (`NoSQL Collection`). Agrupa los documentos JSON y se encuentra particionado estratégicamente por una Partition Key para garantizar la escalabilidad.
+
+> ##### Motor de consultas
+> Componente interno de procesamiento (`Query Engine`). Se encarga de realizar la indexación automática de los documentos JSON entrantes y devuelve las confirmaciones de las transacciones.
+
+#### Interacciones del sistema
+
+1. **Petición inicial:** El módulo de persistencia ubicado en *Azure Functions* envía las peticiones HTTP/REST hacia la *Cuenta de Cosmos DB*.
+2. **Validación:** La cuenta valida las credenciales, autentica y dirige la petición hacia la *Base de datos* lógica.
+3. **Distribución:** La base de datos enruta la operación (ya sea de lectura o de escritura) hacia el *Contenedor NoSQL* específico.
+4. **Procesamiento interno:** El contenedor recibe la carga de trabajo y delega la ejecución física al *Motor de consultas*.
+5. **Retorno de estado:** Finalmente, el motor procesa el documento JSON, actualiza sus índices y retorna el estado de la operación (ej. guardado exitoso) directamente de vuelta hacia *Azure Functions*.
+
 #### Protocolos de comunicación
 
 | **From**           | **To**             | **Description**                                                            |
