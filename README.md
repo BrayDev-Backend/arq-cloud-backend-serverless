@@ -355,29 +355,28 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 #### Componentes Internos
 
 > ##### Router API v1
-> Módulo de configuración inicial. [cite_start]Gestiona el enrutamiento de entrada agrupando las peticiones bajo un sufijo manual configurado como "v1"[cite: 3, 4].
-
+> Módulo de configuración inicial. [cite_start]Gestiona el enrutamiento de entrada agrupando las peticiones bajo un sufijo manual configurado como "v1".
 > ##### Operación registrarPedido
-> [cite_start]Componente de operación de API que recibe y procesa las peticiones de creación entrantes a través del verbo HTTP POST en la ruta `/registrar_pedido`[cite: 5].
+> [cite_start]Componente de operación de API que recibe y procesa las peticiones de creación entrantes a través del verbo HTTP POST en la ruta `/registrar_pedido`.
 
 > ##### Operación actualizarEstado
-> [cite_start]Componente de operación de API que recibe las modificaciones de los pedidos y evidencias a través del verbo HTTP PUT en la ruta `/actualizar_estado`[cite: 5, 49].
+> [cite_start]Componente de operación de API que recibe las modificaciones de los pedidos y evidencias a través del verbo HTTP PUT en la ruta `/actualizar_estado`.
 
 > ##### Operación consultarHistorial
-> [cite_start]Componente de operación de API destinado a la lectura de datos, recibiendo el tráfico a través del verbo HTTP GET en la ruta `/consultar_historial`[cite: 5].
+> [cite_start]Componente de operación de API destinado a la lectura de datos, recibiendo el tráfico a través del verbo HTTP GET en la ruta `/consultar_historial`.
 
 > ##### Motor de Políticas
-> Módulo de seguridad del gateway. [cite_start]Tiene la directiva "Subscription Required" desmarcada para remover la seguridad por defecto (Ocp-Apim-Subscription-Key)[cite: 6, 7]. [cite_start]Esto permite que el cliente (frontend o Postman) realice peticiones con URLs limpias[cite: 7].
+> Módulo de seguridad del gateway. Tiene la directiva "Subscription Required" desmarcada para remover la seguridad por defecto (Ocp-Apim-Subscription-Key). Esto permite que el cliente (frontend o Postman) realice peticiones con URLs limpias.
 
 > ##### Backend Routing
-> Módulo de red que enruta el tráfico hacia el servidor real. [cite_start]Contiene la configuración de `Web Service URL` que apunta de manera directa a la raíz productiva del contenedor de Azure Functions[cite: 8].
+> Módulo de red que enruta el tráfico hacia el servidor real. Contiene la configuración de `Web Service URL` que apunta de manera directa a la raíz productiva del contenedor de Azure Functions.
 
 #### Interacciones del sistema
 
 1. **Petición entrante:** El cliente envía una petición HTTP/JSON hacia la URL pública del gateway.
-2. **Enrutamiento:** El *Router API v1* recibe el tráfico y lo dirige a la operación específica (`POST`, `PUT` o `GET`) basándose en el verbo HTTP utilizado.
-3. **Validación de seguridad:** La petición atraviesa el *Motor de Políticas*, el cual valida la entrada y permite el paso libre al tener la exigencia de suscripción deshabilitada.
-4. **Envío al servidor real:** Finalmente, el *Backend Routing* toma esta petición ya validada y la dispara internamente por HTTPS hacia el contenedor de Azure Functions.
+2. **Enrutamiento:** El Router API v1 recibe el tráfico y lo dirige a la operación específica (`POST`, `PUT` o `GET`) basándose en el verbo HTTP utilizado.
+3. **Validación de seguridad:** La petición atraviesa el Motor de Políticas, el cual valida la entrada y permite el paso libre al tener la exigencia de suscripción deshabilitada.
+4. **Envío al servidor real:** Finalmente, el Backend Routing toma esta petición ya validada y la dispara internamente por HTTPS hacia el contenedor de Azure Functions.
 
 ### Diagrama C3 - Azure Functions
 
@@ -408,12 +407,12 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-1. **Entrada de tráfico:** El *API Management* actúa como gateway y enruta las solicitudes HTTP directamente hacia el *function_app.py (Router V2)*.
-2. **Enrutamiento interno:** El router redirige las solicitudes según su método HTTP: las peticiones `POST` van a *registrar_pedido*, las `PUT` a *actualizar_estado*, y las `GET` a *consultar_historial*.
+1. **Entrada de tráfico:** El API Management actúa como gateway y enruta las solicitudes HTTP directamente hacia el function_app.py (Router V2).
+2. **Enrutamiento interno:** El router redirige las solicitudes según su método HTTP: las peticiones `POST` van a registrar_pedido, las `PUT` a actualizar_estado, y las `GET` a consultar_historial.
 3. **Procesamiento y orquestación:** * *registrar_pedido* guarda nuevos pedidos y actualiza información comunicándose con el Módulo de persistencia.
-   * *consultar_historial* recupera el historial de pedidos desde el Módulo de persistencia.
-   * *actualizar_estado* orquesta tres acciones: actualiza el estado en la base de datos (Módulo de persistencia), envía las imágenes o evidencias (Módulo de archivos) y genera notificaciones push para informar los cambios de estado (Módulo de alertas).
-4. **Ejecución en servicios administrados:** Los módulos se conectan con los contenedores externos mediante sus SDKs: el de persistencia ejecuta escrituras y lecturas en *Cosmos DB*, el de archivos almacena imágenes en *Blob Storage*, y el de alertas envía las notificaciones a los celulares a través de *Firebase FCM*.
+   * consultar_historial recupera el historial de pedidos desde el Módulo de persistencia.
+   * actualizar_estado orquesta tres acciones: actualiza el estado en la base de datos (Módulo de persistencia), envía las imágenes o evidencias (Módulo de archivos) y genera notificaciones push para informar los cambios de estado (Módulo de alertas).
+4. **Ejecución en servicios administrados:** Los módulos se conectan con los contenedores externos mediante sus SDKs: el de persistencia ejecuta escrituras y lecturas en Cosmos DB, el de archivos almacena imágenes en Blob Storage, y el de alertas envía las notificaciones a los celulares a través de Firebase FCM.
 
 ### Diagrama C3 - Azure Cosmos DB
 
@@ -435,11 +434,11 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-1. **Petición inicial:** El módulo de persistencia ubicado en *Azure Functions* envía las peticiones HTTP/REST hacia la *Cuenta de Cosmos DB*.
-2. **Validación:** La cuenta valida las credenciales, autentica y dirige la petición hacia la *Base de datos* lógica.
-3. **Distribución:** La base de datos enruta la operación (ya sea de lectura o de escritura) hacia el *Contenedor NoSQL* específico.
-4. **Procesamiento interno:** El contenedor recibe la carga de trabajo y delega la ejecución física al *Motor de consultas*.
-5. **Retorno de estado:** Finalmente, el motor procesa el documento JSON, actualiza sus índices y retorna el estado de la operación (ej. guardado exitoso) directamente de vuelta hacia *Azure Functions*.
+1. **Petición inicial:** El módulo de persistencia ubicado en Azure Functions envía las peticiones HTTP/REST hacia la Cuenta de Cosmos DB.
+2. **Validación:** La cuenta valida las credenciales, autentica y dirige la petición hacia la Base de datos lógica.
+3. **Distribución:** La base de datos enruta la operación (ya sea de lectura o de escritura) hacia el Contenedor NoSQL específico.
+4. **Procesamiento interno:** El contenedor recibe la carga de trabajo y delega la ejecución física al Motor de consultas.
+5. **Retorno de estado:** Finalmente, el motor procesa el documento JSON, actualiza sus índices y retorna el estado de la operación (ej. guardado exitoso) directamente de vuelta hacia Azure Functions.
 
 ### Diagrama C3 - Azure Blob Storage
 
@@ -461,11 +460,11 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-1. **Envío del archivo:** El Módulo de archivos ubicado en *Azure Functions* envía una solicitud HTTP con el archivo en bytes (imagen JPG/PNG) hacia la *Cuenta de almacenamiento*.
-2. **Autenticación y enrutamiento:** La *Cuenta de almacenamiento* valida la Cadena de Conexión y dirige el tráfico correspondiente hacia el *Servicio Blob*.
-3. **Ejecución de carga:** El *Servicio Blob* procesa la petición y ejecuta la operación de carga (`upload_blob`) apuntando al *Contenedor de Archivos*.
-4. **Persistencia:** El contenedor aloja exitosamente el *Archivo Binario* en su estructura privada.
-5. **Confirmación:** Una vez que el archivo físico está persistido, se retorna un código de estado HTTP 201 (Created) directamente de vuelta a *Azure Functions*.
+1. **Envío del archivo:** El Módulo de archivos ubicado en *Azure Functions* envía una solicitud HTTP con el archivo en bytes (imagen JPG/PNG) hacia la Cuenta de almacenamiento.
+2. **Autenticación y enrutamiento:** La *Cuenta de almacenamiento* valida la Cadena de Conexión y dirige el tráfico correspondiente hacia el Servicio Blob.
+3. **Ejecución de carga:** El *Servicio Blob* procesa la petición y ejecuta la operación de carga (`upload_blob`) apuntando al Contenedor de Archivos.
+4. **Persistencia:** El contenedor aloja exitosamente el Archivo Binario en su estructura privada.
+5. **Confirmación:** Una vez que el archivo físico está persistido, se retorna un código de estado HTTP 201 (Created) directamente de vuelta a Azure Functions.
 
 ### Diagrama C3 - Notificaciones Hub
 
@@ -487,10 +486,10 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 
 #### Interacciones del sistema
 
-1. **Petición de inicialización (Credenciales):** *Azure Functions* inicia el flujo enviando una petición de inicialización al *Administrador de credenciales* para cargar las llaves de acceso.
-2. **Petición de inicialización (Validación):** Simultáneamente, *Azure Functions* se comunica con el *Validador de instancia* para asegurar que el SDK de Firebase se inicialice una única vez por instancia activa.
-3. **Paso de parámetros:** Una vez que el entorno ya está validado, *Azure Functions* envía la información específica del pedido (estado, ID, imágenes) hacia el *Constructor de mensaje*.
-4. **Disparo de la notificación:** El *Constructor de mensaje* entrega el objeto completamente estructurado al *Motor de despacho*, el cual ejecuta la salida asíncrona de la alerta push hacia los dispositivos correspondientes.
+1. **Petición de inicialización (Credenciales):** Azure Functions inicia el flujo enviando una petición de inicialización al Administrador de credenciales para cargar las llaves de acceso.
+2. **Petición de inicialización (Validación):** Simultáneamente, Azure Functions se comunica con el Validador de instancia para asegurar que el SDK de Firebase se inicialice una única vez por instancia activa.
+3. **Paso de parámetros:** Una vez que el entorno ya está validado, Azure Functions envía la información específica del pedido (estado, ID, imágenes) hacia el Constructor de mensaje.
+4. **Disparo de la notificación:** El Constructor de mensaje entrega el objeto completamente estructurado al Motor de despacho, el cual ejecuta la salida asíncrona de la alerta push hacia los dispositivos correspondientes.
 
 ## Grupo de recursos
 ![Grupo de recursos](assets/grupoderecursos.png)
