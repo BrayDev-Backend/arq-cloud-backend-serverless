@@ -325,6 +325,36 @@ Por otra parte, los administradores utilizan la plataforma para supervisar el fu
 > ##### Notification Hubs
 > Envío de notificaciones push en tiempo real a Android (FCM) y iOS (APNs).
 
+### Diagrama C3 - Azure API Management
+
+![Diagrama de componentes C3 API Management](assets/C3%20-%20API%20Managament.drawio.png)
+
+#### Componentes Internos
+
+> ##### Router API v1
+> Módulo de configuración inicial. [cite_start]Gestiona el enrutamiento de entrada agrupando las peticiones bajo un sufijo manual configurado como "v1"[cite: 3, 4].
+
+> ##### Operación registrarPedido
+> [cite_start]Componente de operación de API que recibe y procesa las peticiones de creación entrantes a través del verbo HTTP POST en la ruta `/registrar_pedido`[cite: 5].
+
+> ##### Operación actualizarEstado
+> [cite_start]Componente de operación de API que recibe las modificaciones de los pedidos y evidencias a través del verbo HTTP PUT en la ruta `/actualizar_estado`[cite: 5, 49].
+
+> ##### Operación consultarHistorial
+> [cite_start]Componente de operación de API destinado a la lectura de datos, recibiendo el tráfico a través del verbo HTTP GET en la ruta `/consultar_historial`[cite: 5].
+
+> ##### Motor de Políticas
+> Módulo de seguridad del gateway. [cite_start]Tiene la directiva "Subscription Required" desmarcada para remover la seguridad por defecto (Ocp-Apim-Subscription-Key)[cite: 6, 7]. [cite_start]Esto permite que el cliente (frontend o Postman) realice peticiones con URLs limpias[cite: 7].
+
+> ##### Backend Routing
+> Módulo de red que enruta el tráfico hacia el servidor real. [cite_start]Contiene la configuración de `Web Service URL` que apunta de manera directa a la raíz productiva del contenedor de Azure Functions[cite: 8].
+
+#### Interacciones del sistema
+
+[cite_start]El proceso comienza cuando el cliente envía una petición HTTP hacia la URL pública del gateway[cite: 48, 50]. [cite_start]El Router API v1 recibe este tráfico y, dependiendo del verbo utilizado, lo dirige hacia la operación específica correspondiente (POST, PUT o GET)[cite: 4, 5].
+
+[cite_start]Una vez categorizada, la petición atraviesa el Motor de Políticas, el cual la valida y permite su paso sin exigir una llave de suscripción[cite: 6, 7]. [cite_start]Posteriormente, el Backend Routing toma esta petición validada y la envía limpia por HTTPS[cite: 8]. [cite_start]En todo este flujo, el API Management funciona estrictamente como un proxy o "embudo" [cite: 56][cite_start], encargándose de traducir la dirección pública y disparar la llamada interna hacia el servidor donde reside el código de Azure Functions[cite: 57].
+
 #### Protocolos de comunicación
 
 | **From**           | **To**             | **Description**                                                            |
