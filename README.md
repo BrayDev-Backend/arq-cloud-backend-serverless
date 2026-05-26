@@ -139,9 +139,11 @@
 
 ## Índice
 
+## Índice
+
 1. [Contexto del Sistema](#contexto-del-sistema)
-   - [Descripción de la empresa](#descripción-de-la-empresa)
-   - [Situación tecnológica actual y problemas identificados](#situación-tecnológica-actual-y-problemas-identificados)
+   - [Descripción de la empresa](#descripcion-de-la-empresa)
+   - [Situación tecnológica actual y problemas identificados](#situacion-tecnologica-actual-y-problemas-identificados)
    - [Requerimientos para la nueva arquitectura](#requerimientos-para-la-nueva-arquitectura)
    - [Restricciones del proyecto](#restricciones-del-proyecto)
 
@@ -152,8 +154,22 @@
      - [Interacciones del sistema](#interacciones-del-sistema)
    - [Diagrama C2](#diagrama-c2)
      - [Contenedores del Sistema](#contenedores-del-sistema)
-     - [Protocolos de comunicación](#protocolos-de-comunicación)
-   - [Diagrama C3 - Azure API Management](#diagrama-c3-azure-api)
+     - [Protocolos de comunicación](#protocolos-de-comunicacion)
+   - [Diagrama C3 - Azure API Management](#diagrama-c3---azure-api-management)
+     - [Componentes Internos](#componentes-internos)
+     - [Interacciones del sistema](#interacciones-del-sistema-1)
+   - [Diagrama C3 - Azure Functions](#diagrama-c3---azure-functions)
+     - [Componentes Internos](#componentes-internos-1)
+     - [Interacciones del sistema](#interacciones-del-sistema-2)
+   - [Diagrama C3 - Azure Cosmos DB](#diagrama-c3---azure-cosmos-db)
+     - [Componentes Internos](#componentes-internos-2)
+     - [Interacciones del sistema](#interacciones-del-sistema-3)
+   - [Diagrama C3 - Azure Blob Storage](#diagrama-c3---azure-blob-storage)
+     - [Componentes Internos](#componentes-internos-3)
+     - [Interacciones del sistema](#interacciones-del-sistema-4)
+   - [Diagrama C3 - Notificaciones Hub](#diagrama-c3---notificaciones-hub)
+     - [Componentes Internos](#componentes-internos-4)
+     - [Interacciones del sistema](#interacciones-del-sistema-5)
 
 3. [Grupo de recursos](#grupo-de-recursos)
    - [Azure Functions](#azure-functions)
@@ -162,21 +178,22 @@
    - [Azure Storage Account (Blob Storage)](#azure-storage-account-blob-storage)
    - [Azure Notification Hubs](#azure-notification-hubs)
 
-4. [Logs de ejecución Azure Functions](#logs-de-ejecución-azure-functions)
+4. [Logs de ejecución Azure Functions](#logs-de-ejecucion-azure-functions)
    - [Registrar Pedido](#registrar-pedido)
    - [Actualizar Estado](#actualizar-estado)
    - [Consultar Historial](#consultar-historial)
 
 5. [Notifications Hubs](#notifications-hubs)
-   - [Configuración del hub](#configuración-del-hub)
-   - [Prueba de notificación](#prueba-de-notificación)
+   - [Configuración del hub](#configuracion-del-hub)
+   - [Prueba de notificación](#prueba-de-notificacion)
 
 6. [ADR's](#adrs)
-   - [ADR-01: Azure Functions vs Azure App Service](#adr-01-uso-de-azure-functions-consumption-plan-sobre-azure-app-service-para-la-lógica-de-negocio-de-rapidgo)
-   - [ADR-02: Cosmos DB vs Azure SQL Database](#adr-02-adopción-de-cosmos-db-nosql-en-lugar-de-azure-sql-database-para-persistencia-de-pedidos-usuarios-y-estados-de-entrega)
-   - [ADR-03: Azure API Management como gateway](#adr-03-implementación-de-azure-api-management-developer-tier-como-gateway-unificado-para-exponer-las-azure-functions)
-   - [ADR-04: Azure Blob Storage vs Azure Files](#adr-04-uso-de-azure-blob-storage-lrs-standard-sobre-azure-files-para-almacenar-comprobantes-de-entrega-imágenes-de-productos-y-reportes)
-   - [ADR-05: Azure Notification Hubs vs Azure Communication Services](#adr-05-implementación-de-azure-notification-hubs-free-tier-sobre-azure-communication-services-para-el-envío-de-notificaciones-push-a-clientes-y-repartidores)
+   - [ADR-01: Azure Functions vs Azure App Service](#adr-01-uso-de-azure-functions-consumption-plan-sobre-azure-app-service-para-la-logica-de-negocio-de-rapidgo)
+   - [ADR-02: Cosmos DB vs Azure SQL Database](#adr-02-adopcion-de-cosmos-db-nosql-en-lugar-de-azure-sql-database-para-persistencia-de-pedidos-usuarios-y-estados-de-entrega)
+   - [ADR-03: Azure API Management como gateway](#adr-03-implementacion-de-azure-api-management-developer-tier-como-gateway-unificado-para-exponer-las-azure-functions)
+   - [ADR-04: Azure Blob Storage vs Azure Files](#adr-04-uso-de-azure-blob-storage-lrs-standard-sobre-azure-files-para-almacenar-comprobantes-de-entrega-imagenes-de-productos-y-reportes)
+   - [ADR-05: Azure Notification Hubs vs Azure Communication Services](#adr-05-implementacion-de-azure-notification-hubs-free-tier-sobre-azure-communication-services-para-el-envio-de-notificaciones-push-a-clientes-y-repartidores)
+
 7. [Diagrama De Arquitectura](#diagrama-de-arquitectura)
 
 ## Contexto del Sistema 
